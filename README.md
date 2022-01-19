@@ -12,19 +12,23 @@ that our tool can help students take the guesswork out of their GPA and to take 
 careers.
 
 ## Installation
+Our application will be live via a URL.
 
 ## Project Roadmap
+- Feb 15, 2022 - DEMO DAY: Backend Implementation Focus
+- Mar 3, 2022 - MIDSTAGE DEMO DAY
+- May 5, 2022 - FINAL PRESENTATION AND DEMO
 
 ## Authors and Acknowledgment
 TEAM MEMBERS AND ROLES:
-Niara Patterson - Team Lead and Frontend Developer
-Akinlabi Mason-Hogans - Full Stack Developer
-Dimitri Law - Full Stack Developer
+- Niara Patterson - Team Lead and Frontend Developer
+- Akinlabi Mason-Hogans - Full Stack Developer
+- Dimitri Law - Full Stack Developer
 
 Special thanks to the following:
-Advisor: Professor Effort
-Professor: Dr. Letu Qingge
-Teaching Assistant: Addison Shaver
+- Advisor: Professor Effort
+- Professor: Dr. Letu Qingge
+- Teaching Assistant: Addison Shaver
 
 ## Project Status
 As of January 18, 2022 - ACTIVE
