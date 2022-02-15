@@ -14,11 +14,28 @@
     height:auto;
 }
 
+button {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    align-items: center;
+    background: #C4C4C4;
+    border-radius: 10px;
+    width: 345px;
+    height: 71px;
+}
+
   
 @media (min-width: 700px) {
     .Home-Text {
-      grid-column: col-start 1 / span 4;
+      grid-column: col-start 2 / span 3;
       grid-row: 2;
+      font-weight: 900;
+      font-size: 58px;
+      line-height: 70px;
+      text-align: left;
     }
     .Home-Image {
       grid-column: col-start 6 / span 5;
@@ -26,5 +43,5 @@
       
     }
 
-  }
+}
   
