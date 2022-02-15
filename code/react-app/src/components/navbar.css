@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
     gap: 2px;
+    font-weight: 500;
 }
 .Home-Page > * {
     grid-column: col-start / span 12;
@@ -20,4 +21,9 @@ li {
     display: block;
     text-align: center;
     padding: 14px 16px;
+    
+}
+
+li:link {
+    text-decoration: none;
 }
