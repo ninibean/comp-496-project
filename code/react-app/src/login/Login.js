@@ -37,6 +37,7 @@ const Login = () => {
       {loginData ? (
         <div>
           <h3>You logged in as {loginData.email}</h3>
+          {console.log(loginData)}
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
