@@ -1,6 +1,8 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
 import { useState } from "react";
+import ClassesLeft from "./features/ClassesLeft";
+import GpaFetch from "./features/GpaFetch";
 
 const Login = () => {
   const [loginData, setLoginData] = useState(
@@ -37,7 +39,8 @@ const Login = () => {
       {loginData ? (
         <div>
           <h3>You logged in as {loginData.email}</h3>
-          {console.log(loginData)}
+          <GpaFetch></GpaFetch>
+          <ClassesLeft></ClassesLeft>
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
