@@ -1,0 +1,28 @@
+#navbar {
+  text-align: center;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 2px;
+  font-weight: 500;
+}
+.Home-Page > * {
+  grid-column: col-start / span 12;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: rgb(119, 58, 58); */
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+li:link {
+  text-decoration: none;
+}
