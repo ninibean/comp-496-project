@@ -2,25 +2,32 @@ import React from 'react';
 import "./navbar.css"
 import {  Link } from "react-router-dom";
 
+const linkStyle = {
+    textDecoration: "none",
+    color: 'black'
+};
+
 const navbar= () =>{
   return (
-  <div id='navbar'>
-    <li id='home'>
-        <Link to="/"> GPA Genie </Link>
-    </li>
-    <li>
-      <Link to="/calculator"> GPA Calculator </Link>
-    </li>
-    <li>
-      <Link to="/about"> About Us </Link>
-    </li>
-    <li>
-      <Link to="/faq"> FAQ </Link>
-    </li>
-    <li>
-      <Link to="/resources">Resources</Link>
-    </li>
-  </div>
+    <div id="navbar-wrapper">
+        <div id='navbar'>
+            <li id='home'>
+                <Link to="/" style={linkStyle}> GPA Genie </Link>
+            </li>
+            <li>
+                <Link to="/calculator" style={linkStyle}> GPA Calculator </Link>
+            </li>
+            <li>
+                <Link to="/about" style={linkStyle}> About Us </Link>
+            </li>
+            <li>
+                <Link to="/faq" style={linkStyle}> FAQ </Link>
+            </li>
+            <li>
+                <Link to="/resources" style={linkStyle}>Resources</Link>
+            </li>
+    </div>
+    </div>
   );
 }
 export default navbar;

@@ -4,10 +4,7 @@ import { useState } from "react";
 
 const ClassesLeft = () => {
   let json = require("../../backend/db.json");
-  //console.log(json2, "the json obj");
-  //var obj = JSON.parse(json2);
   var samplestudentclasses = json["studentsInfo"][31]["courses"];
-  //console.log(samplestudentclasses);
 
   const compcourses = [
     "COMP121",
