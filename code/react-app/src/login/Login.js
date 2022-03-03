@@ -40,7 +40,7 @@ const Login = () => {
     <div className="loginSection">
       {loginData ? (
         <div>
-          <h3>You logged in as {loginData.email}</h3>
+          <h3>You are logged in as {loginData.email}</h3>
           <GpaFetch></GpaFetch>
           <ClassesLeft></ClassesLeft>
           <Recommend></Recommend>
