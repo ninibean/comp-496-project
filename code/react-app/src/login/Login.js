@@ -3,6 +3,7 @@ import GoogleLogin from "react-google-login";
 import { useState } from "react";
 import ClassesLeft from "./features/ClassesLeft";
 import GpaFetch from "./features/GpaFetch";
+import Recommend from "./features/Recommend";
 
 const Login = () => {
   const [loginData, setLoginData] = useState(
@@ -41,6 +42,7 @@ const Login = () => {
           <h3>You logged in as {loginData.email}</h3>
           <GpaFetch></GpaFetch>
           <ClassesLeft></ClassesLeft>
+          <Recommend></Recommend>
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
