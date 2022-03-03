@@ -3,6 +3,7 @@ import GoogleLogin from "react-google-login";
 import { useState } from "react";
 import ClassesLeft from "./features/ClassesLeft";
 import GpaFetch from "./features/GpaFetch";
+import "./Login.css";
 
 const Login = () => {
   const [loginData, setLoginData] = useState(
@@ -44,8 +45,8 @@ const Login = () => {
           <button onClick={logout}>Logout</button>
         </div>
       ) : (
-        <div>
-          <h1>Log in with your Aggie email</h1>
+        <div className="googleButton">
+          <h3>Log in using your Aggie Email: </h3>
           <GoogleLogin
             clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
             buttonText="Log in with Google"

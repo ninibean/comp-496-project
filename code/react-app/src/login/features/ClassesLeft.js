@@ -3,12 +3,8 @@ import GoogleLogin from "react-google-login";
 import { useState } from "react";
 
 const ClassesLeft = () => {
-  // TODO: Fix json variable so that it takes a relatative path
-  let json2 = require("/Users/niarapatterson/Desktop/comp-496-project/code/react-app/src/backend/db.json");
-  //console.log(json2, "the json obj");
-  //var obj = JSON.parse(json2);
-  var samplestudentclasses = json2["studentsInfo"][31]["courses"];
-  //console.log(samplestudentclasses);
+  let json = require("../../backend/db.json");
+  var samplestudentclasses = json["studentsInfo"][31]["courses"];
 
   const compcourses = [
     "COMP121",
