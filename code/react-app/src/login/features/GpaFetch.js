@@ -3,9 +3,10 @@ import GoogleLogin from "react-google-login";
 import { useState } from "react";
 
 const GpaFetch = () => {
-  let json2 = require("/Users/akin/Documents/GitHub/comp-496-project/code/react-app/src/backend/db.json");
+  //let json2 = require("/Users/akin/Documents/GitHub/comp-496-project/code/react-app/src/backend/db.json");
   //console.log(json2, "the json obj");
-  const samplestudentgpa = json2["studentsInfo"][31]["gpa"];
+  let json = require("../../backend/db.json");
+  const samplestudentgpa = json["studentsInfo"][31]["gpa"];
   var flavortext = "";
   if (samplestudentgpa >= 3.0) {
     flavortext = "good";
