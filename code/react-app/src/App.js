@@ -16,7 +16,8 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <Navbar />
+        <Navbar />
+        <Login />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculator" element={<Calculator />} />
@@ -26,7 +27,6 @@ class App extends React.Component {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
-        <Login></Login>
       </div>
     );
   }

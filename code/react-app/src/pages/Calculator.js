@@ -8,8 +8,10 @@ class Calculator extends React.Component {
         // Creates the user input boxes
 
         const c = document.createElement("div");
-        const cgbox = document.createElement("textarea");
+        const cgbox = document.createElement("textarea")
+        cgbox.setAttribute("placeholder", "Enter course grade");
         const chbox = document.createElement("textarea");
+        chbox.setAttribute("placeholder", "Enter course weight");
         // const cGradeDropDown = document.createElement("select");
         // cGradeDropDown.id = "gradeSelect"
         c.appendChild(cgbox);
@@ -59,16 +61,13 @@ class Calculator extends React.Component {
             if (/\d/.test(grade) && /\d/.test(hours)) {
                 creditEarned += (hours * grade);
                 totalHours += (hours * 1);
-                //alert("ce" + creditearned + "   th" + totalhours);
             } else {
                 alert("Please make sure each field is a valid number or decimal.");
                 break;
             }
         }
-        // alert(Math.round(100 * (creditEarned / totalHours) / 100));
-        // alert(creditEarned / totalHours);
         var total = creditEarned / totalHours;
-        finalGPA = Math.round(total * 100) / 100
+        finalGPA = (Math.round(total * 100) / 100).toFixed(2);
         if (isNaN(total)) {
             finalGPA = 0.00;
         }
@@ -94,7 +93,6 @@ class Calculator extends React.Component {
             <div className="Calculator">
                 <div id="instructions">
                     <p> GPA Calculator </p>
-                    <p>Grade    Hours</p>
                 </div>
                 <div id="classInfo"></div>
                 <div id="buttonField">
