@@ -3,6 +3,7 @@ import GoogleLogin from "react-google-login";
 import { useState } from "react";
 
 const Recommend = () => {
+  let cleft = [];
   let json = require("../../backend/db.json");
   const samplestudentclasses = json["studentsInfo"][31]["courses"];
   const classes = [
@@ -108,10 +109,20 @@ const Recommend = () => {
     ],
     "COMP496",
   ];
+  function outputProtocol() {
+    document.getElementById("r-result").innerHTML = "";
+    const node = document.createElement("h3");
+    for (let i = 0; i < cleft.length; i++) {
+      const textnode1 = document.createTextNode(cleft[i]);
+      node.appendChild(textnode1);
+      const nodebr = document.createElement("br");
+      document.getElementById("r-result").appendChild(node);
+      node.appendChild(nodebr);
+    }
+  }
 
   function recommendClasses() {
     let count = 0;
-    let cleft = [];
     for (let i = 0; i < classes.length; i++) {
       //console.log(classes[i]);
       if (classes[i].constructor === Array) {
@@ -124,6 +135,7 @@ const Recommend = () => {
               count = count + 1;
               if (count >= 5) {
                 console.log(cleft);
+                outputProtocol();
                 return cleft;
               }
               break;
@@ -136,18 +148,23 @@ const Recommend = () => {
           count = count + 1;
           if (count >= 5) {
             console.log(cleft);
+            outputProtocol();
             return cleft;
           }
         }
       }
     }
     console.log(cleft);
+    outputProtocol();
     return cleft;
   }
+
+  //document.getElementById("r-result").appendChild(node);
 
   return (
     <div>
       <button onClick={recommendClasses}>Recommend Classes</button>
+      <div id="r-result"></div>
     </div>
   );
 };
