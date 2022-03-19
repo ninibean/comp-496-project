@@ -17,7 +17,7 @@
       "id": 1,
       "name": "Teon Smith",
       "courses": ["ENGL101", "comp267", "Comp476", "Math351", "Comp476"],
-      "gpa": 3.28
+      "gpa": 3.21
     },
     {
       "id": 2,
@@ -196,7 +196,7 @@
     {
       "id": 31,
       "name": "Akinlabi Mason-Hogans",
-      "courses": ["COMP320", "COMP361", "COMP496", "MATH351", "COMP476"],
+      "courses": ["COMP163", "COMP361", "COMP496", "MATH351", "COMP476"],
       "gpa": 2.38
     }
   ]

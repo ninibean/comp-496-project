@@ -1,12 +1,17 @@
 import React from 'react';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import './Calculator.css';
 
 class Calculator extends React.Component {
     addClass() {
         // Creates the user input boxes
 
         const c = document.createElement("div");
-        const cgbox = document.createElement("textarea");
+        const cgbox = document.createElement("textarea")
+        cgbox.setAttribute("placeholder", "Enter course grade");
         const chbox = document.createElement("textarea");
+        chbox.setAttribute("placeholder", "Enter course weight");
         // const cGradeDropDown = document.createElement("select");
         // cGradeDropDown.id = "gradeSelect"
         c.appendChild(cgbox);
@@ -17,6 +22,7 @@ class Calculator extends React.Component {
     
     manualGPA() {
         // Calculates the GPA and outputs the result
+        document.getElementById("calculatedGPAValue").innerHTML = "";
 
         // TODO: turn dropdown menu into a component
         var creditEarned = 0.0;
@@ -29,16 +35,16 @@ class Calculator extends React.Component {
         // var courseName;
 
         const GPACalculation = document.createElement("div");
-        document.getElementById("calculatedGPA").appendChild(GPACalculation);
+        document.getElementById("calculatedGPAValue").appendChild(GPACalculation);
         var staticTextTag = document.createElement("p");
         var GPATextTag = document.createElement("p");
-        var staticText = document.createTextNode("Overall GPA: ");
-        staticTextTag.appendChild(staticText);
+        // var staticText = document.createTextNode("Overall GPA: ");
+        // staticTextTag.appendChild(staticText);
 
     
         const container = document.getElementById("classInfo");
         const courses = container.getElementsByTagName("div");;
-        const GPAContainer = document.getElementById("calculatedGPA");
+        const GPAContainer = document.getElementById("calculatedGPAValue");
 
         // for (let i = 0; i < gradeLetters.length; i++) {
         //     var option = document.createElement("option");
@@ -55,32 +61,48 @@ class Calculator extends React.Component {
             if (/\d/.test(grade) && /\d/.test(hours)) {
                 creditEarned += (hours * grade);
                 totalHours += (hours * 1);
-                //alert("ce" + creditearned + "   th" + totalhours);
             } else {
                 alert("Please make sure each field is a valid number or decimal.");
                 break;
             }
         }
-        // alert(Math.round(100 * (creditEarned / totalHours) / 100));
-        // alert(creditEarned / totalHours);
-        finalGPA = creditEarned / totalHours;
+        var total = creditEarned / totalHours;
+        finalGPA = (Math.round(total * 100) / 100).toFixed(2);
+        if (isNaN(total)) {
+            finalGPA = 0.00;
+        }
+        
         var finalGPAString = finalGPA.toString();
         var finalGPAText = document.createTextNode(finalGPAString)
         GPATextTag.appendChild(finalGPAText);
         GPAContainer.appendChild(staticTextTag);
         GPAContainer.appendChild(GPATextTag);
 
+        // Changes the color of the GPA Value text based on a condition
+        var col=document.getElementById("calculatedGPAValue");
+        if (finalGPA < 3.00) {
+            col.style.color="#CD2026";
+        } else {
+            col.style.color="green";
+        }
+
     }
 
     render () {
         return (
             <div className="Calculator">
-                <p> Please click the "Add Class" button to modify data. Enter the course grade to the left, and the course weight on the right.</p>
-                <p>Grade/Hours</p>
+                <div id="instructions">
+                    <p> GPA Calculator </p>
+                </div>
                 <div id="classInfo"></div>
-                <button onClick={this.addClass}> Add Class </button>
-                <button onClick={this.manualGPA}> Calculate GPA </button>
-                <div id="calculatedGPA"></div>                
+                <div id="buttonField">
+                    <Button onClick={this.addClass}> Add Class </Button>
+                    <Button onClick={this.manualGPA}> Calculate GPA </Button>
+                </div>
+                <div id="calculatedGPA">
+                    <p> Overall GPA: </p>    
+                </div> 
+                <div id="calculatedGPAValue"></div>               
             </div>
         );
     }

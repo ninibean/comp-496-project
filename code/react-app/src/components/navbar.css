@@ -1,4 +1,4 @@
-#navbar {
+#navbar-wrapper {
   text-align: center;
   font-family: Inter, Arial, Helvetica, sans-serif;
   display: grid;
@@ -8,6 +8,11 @@
 }
 .Home-Page > * {
   grid-column: col-start / span 12;
+}
+
+#navbar {
+    grid-column: col-start 2 / span 11;
+    grid-row: 2;
 }
 
 li {
@@ -21,8 +26,6 @@ li {
   display: block;
   text-align: center;
   padding: 14px 16px;
+  
 }
 
-li:link {
-  text-decoration: none;
-}

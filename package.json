@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "react-router-dom": "^6.2.1"
+=======
+    "emailjs-com": "^3.2.0"
+>>>>>>> main
   }
 }

@@ -17,7 +17,7 @@ function Home() {
 
             <div class='Home-Text'>
                 <p> The one-stop shop to demystifying your academic progress and success </p>
-                <button type='submit' onClick={routeChange} id='calcuate-button'> Calculate My GPA</button>
+                <button type='submit' onClick={routeChange} id='calculate-button'> Calculate My GPA</button>
             </div>
 
             <div class="Home-Image">
