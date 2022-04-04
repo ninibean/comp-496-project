@@ -1,9 +1,13 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
 import { useState } from "react";
+import Button from "@mui/material/Button";
+import "../Login.css";
 
 const Recommend = () => {
   let cleft = [];
+  //let json3 = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
+  //console.log(json3);
   let json = require("../../backend/db.json");
   const samplestudentclasses = json["studentsInfo"][31]["courses"];
   const classes = [
@@ -109,16 +113,111 @@ const Recommend = () => {
     ],
     "COMP496",
   ];
-  function outputProtocol() {
-    document.getElementById("r-result").innerHTML = "";
-    const node = document.createElement("h3");
-    for (let i = 0; i < cleft.length; i++) {
-      const textnode1 = document.createTextNode(cleft[i]);
-      node.appendChild(textnode1);
-      const nodebr = document.createElement("br");
-      document.getElementById("r-result").appendChild(node);
-      node.appendChild(nodebr);
+
+  function singleOutputProtocol(course) {
+    const nodet = document.createElement("h5");
+    const textnode1t = document.createTextNode(course);
+    nodet.appendChild(textnode1t);
+    const nodebrt = document.createElement("br");
+    document.getElementById("r-result").appendChild(nodet);
+    nodet.appendChild(nodebrt);
+  }
+
+  function listOutputProtocol(list) {
+    const nodet = document.createElement("h5");
+    const textnode1t = document.createTextNode(
+      "Choose one of the following for an elective slot:"
+    );
+    nodet.appendChild(textnode1t);
+    const nodebrt = document.createElement("br");
+    document.getElementById("r-result").appendChild(nodet);
+    nodet.appendChild(nodebrt);
+
+    let table = document.createElement("table");
+
+    let tbody = document.createElement("tbody");
+
+    let i = 0;
+    let variable_for_table_formatting = list.length % 3;
+    while (i < list.length - variable_for_table_formatting) {
+      let newrow = document.createElement("tr");
+      let cellone = document.createElement("td");
+      cellone.innerHTML = list[i];
+      let celltwo = document.createElement("td");
+      celltwo.innerHTML = list[i + 1];
+      let cellthree = document.createElement("td");
+      cellthree.innerHTML = list[i + 2];
+
+      newrow.appendChild(cellone);
+      newrow.appendChild(celltwo);
+      newrow.appendChild(cellthree);
+      tbody.appendChild(newrow);
+      i += 3;
     }
+
+    if (variable_for_table_formatting == 2) {
+      let finalrow = document.createElement("tr");
+      let fcellone = document.createElement("td");
+      fcellone.innerHTML = list[list.length - 2];
+      let fcelltwo = document.createElement("td");
+      fcelltwo.innerHTML = list[-1];
+      finalrow.appendChild(fcellone);
+      finalrow.appendChild(fcelltwo);
+      tbody.appendChild(finalrow);
+    } else if (variable_for_table_formatting == 1) {
+      let finalrow = document.createElement("tr");
+      let fcellone = document.createElement("td");
+      fcellone.innerHTML = list[list.length - 2];
+      finalrow.appendChild(fcellone);
+      tbody.appendChild(finalrow);
+    }
+
+    table.appendChild(tbody);
+
+    // Adding the entire table to the body tag
+    document.getElementById("r-result").appendChild(table);
+
+    /*
+    var x = document.createElement("ul");
+    x.setAttribute("id", "myUL");
+    document.getElementById("r-result").appendChild(x);
+
+    for (let i = 0; i < list.length; i++) {
+      var y = document.createElement("LI");
+      var t = document.createTextNode(list[i]);
+      y.appendChild(t);
+      document.getElementById("myUL").appendChild(y);
+    }*/
+  }
+
+  function outputProtocol() {
+    document.getElementsByClassName("r-result").innerHTML = "";
+    const titleNode = document.createElement("h3");
+    const titleNodeText = document.createTextNode(
+      "Heres a suggeted list of courses to sign up for next semester:"
+    );
+    titleNode.appendChild(titleNodeText);
+    document.getElementById("r-result").innerHTML = "";
+    document.getElementById("r-result").appendChild(titleNode);
+
+    for (let i = 0; i < cleft.length; i++) {
+      if (cleft[i].constructor !== Array) {
+        singleOutputProtocol(cleft[i]);
+      } else {
+        listOutputProtocol(cleft[i]);
+      }
+    }
+
+    //const node = document.createElement("h5");
+    //for (let i = 0; i < cleft.length; i++) {
+    //  const textnode1 = document.createTextNode(cleft[i]);
+    //  node.appendChild(textnode1);
+    //  const nodebr = document.createElement("br");
+    //document.getElementById("r-result").innerHTML = "";
+    //  document.getElementById("r-result").appendChild(node);
+    //  node.appendChild(nodebr);
+    //}
+    cleft = [];
   }
 
   function recommendClasses() {
@@ -131,10 +230,9 @@ const Recommend = () => {
           for (let j = 0; j < classes[i].length; j++) {
             if (samplestudentclasses.indexOf(classes[i][j]) == -1) {
               //console.log("One of the following: " + classes[i] + "");
-              cleft.push("One of the following: " + classes[i] + "");
+              cleft.push(classes[i]);
               count = count + 1;
               if (count >= 5) {
-                console.log(cleft);
                 outputProtocol();
                 return cleft;
               }
@@ -147,23 +245,19 @@ const Recommend = () => {
           cleft.push(classes[i]);
           count = count + 1;
           if (count >= 5) {
-            console.log(cleft);
             outputProtocol();
             return cleft;
           }
         }
       }
     }
-    console.log(cleft);
     outputProtocol();
     return cleft;
   }
 
-  //document.getElementById("r-result").appendChild(node);
-
   return (
-    <div>
-      <button onClick={recommendClasses}>Recommend Classes</button>
+    <div id="r-section">
+      <Button onClick={recommendClasses}>Recommend Classes</Button>
       <div id="r-result"></div>
     </div>
   );
