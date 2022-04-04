@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
 import { useState } from "react";
+import Button from "@mui/material/Button";
 
 const GpaFetch = () => {
   let json = require("../../backend/db.json");
@@ -26,7 +27,7 @@ const GpaFetch = () => {
 
   return (
     <div>
-      <button onClick={showresult}>Load GPA</button>
+      <Button onClick={showresult}>Load GPA</Button>
       <div id="result"></div>
     </div>
   );
