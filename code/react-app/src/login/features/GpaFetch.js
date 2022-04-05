@@ -8,19 +8,27 @@ const GpaFetch = () => {
   const samplestudentgpa = json["studentsInfo"][1]["gpa"];
   var flavortext = "";
   if (samplestudentgpa >= 3.0) {
-    flavortext = "good";
+    flavortext = ", which is good";
   } else {
-    flavortext = "bad";
+    flavortext = ", which is bad";
   }
 
   function showresult() {
-    console.log(samplestudentgpa);
-    console.log(flavortext);
+    //console.log(samplestudentgpa);
+    //console.log(flavortext);
+    const node = document.createElement("h3");
+    const textnode1 = document.createTextNode(samplestudentgpa);
+    const textnode2 = document.createTextNode(flavortext);
+    node.appendChild(textnode1);
+    node.appendChild(textnode2);
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("result").appendChild(node);
   }
 
   return (
     <div>
       <button onClick={showresult}>Load GPA</button>
+      <div id="result"></div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { useState } from "react";
 const ClassesLeft = () => {
   let json = require("../../backend/db.json");
   var samplestudentclasses = json["studentsInfo"][31]["courses"];
+  var result = [];
 
   const compcourses = [
     "COMP121",
@@ -102,7 +103,7 @@ const ClassesLeft = () => {
 
   function verify(c) {
     if (samplestudentclasses.indexOf(c) == -1) {
-      console.log(c);
+      result.push(c);
     }
   }
 
@@ -118,47 +119,62 @@ const ClassesLeft = () => {
         m = m + 1;
         if (m == n) {
           console.log("Youve taken enough electives in this subject");
+          result.push("Youve taken enough electives in this subject");
           return;
         }
       }
     }
     console.log("you need " + (n - m) + " more electives in this subject");
+    result.push("you need " + (n - m) + " more electives in this subject");
   }
 
   function sortclasses() {
-    console.log("COMP NEEDED");
+    document.getElementById("cl-result").textContent = "";
+    result.push("COMP NEEDED:");
     subjectcheck(compcourses);
-    console.log("ENG NEEDED");
+    result.push("ENG NEEDED:");
     subjectcheck(engcourses);
-    console.log("MATH NEEDED");
+    result.push("MATH NEEDED:");
     subjectcheck(mathcourses);
-    console.log("GEN ED NEEDED");
+    result.push("GEN ED NEEDED:");
     subjectcheck(geencourses);
-    console.log("PHYSICS/CHEMISTRY NEEDED");
+    result.push("PHYSICS/CHEMISTRY NEEDED:");
     subjectcheck(physcourses);
     subjectcheck(chemcourses);
 
-    console.log("MATH ELECTIVES");
+    result.push("MATH ELECTIVES:");
     electivecheck(mathelect, 1);
-    console.log("COMP ELECTIVES");
+    result.push("COMP ELECTIVES:");
     electivecheck(compelec, 3);
-    console.log("BUSINESS ELECTIVES");
+    result.push("BUSINESS ELECTIVES:");
     electivecheck(busnelec, 1);
-    console.log("STATISTICS ELECTIVES");
+    result.push("STATISTICS ELECTIVES:");
     electivecheck(statelec, 1);
-    console.log("SCIENCE ELECTIVES");
+    result.push("SCIENCE ELECTIVES:");
     electivecheck(scielect, 1);
-    console.log("SOCIAL STUDIES ELECTIVES");
+    result.push("SOCIAL STUDIES ELECTIVES:");
     electivecheck(socialelect, 1);
-    console.log("AFRICAN-AMERICAN STUDIES ELECTIVES");
+    result.push("AFRICAN-AMERICAN STUDIES ELECTIVES:");
     electivecheck(aaelect, 1);
-    console.log("GLOBAL ELECTIVES");
+    result.push("GLOBAL ELECTIVES:");
     electivecheck(globalelect, 1);
+
+    const node = document.createElement("h3");
+    for (let i = 0; i < result.length; i++) {
+      const textnode1 = document.createTextNode(result[i]);
+      node.appendChild(textnode1);
+      const nodebr = document.createElement("br");
+      document.getElementById("cl-result").appendChild(node);
+      node.appendChild(nodebr);
+    }
+
+    document.getElementById("cl-result").appendChild(node);
   }
 
   return (
     <div>
-      <button onClick={sortclasses}>Sort Classes</button>
+      <button onClick={sortclasses}>Needed Classes</button>
+      <div id="cl-result"></div>
     </div>
   );
 };
