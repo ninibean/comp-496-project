@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
 import { useState } from "react";
+import Button from "@mui/material/Button";
 
 const ClassesLeft = () => {
   let json = require("../../backend/db.json");
@@ -101,14 +102,61 @@ const ClassesLeft = () => {
     "PHIL 201",
   ];
 
-  function verify(c) {
-    if (samplestudentclasses.indexOf(c) == -1) {
-      result.push(c);
+  function listOutputProtocol(list, subject) {
+    const nodet = document.createElement("h5");
+    const textnode1t = document.createTextNode(
+      "You still need to take of these " + subject + " courses:"
+    );
+    nodet.appendChild(textnode1t);
+    const nodebrt = document.createElement("br");
+    document.getElementById("cl-result").appendChild(nodet);
+    nodet.appendChild(nodebrt);
+
+    let table = document.createElement("table");
+
+    let tbody = document.createElement("tbody");
+
+    let i = 0;
+    let variable_for_table_formatting = list.length % 3;
+    while (i < list.length - variable_for_table_formatting) {
+      let newrow = document.createElement("tr");
+      let cellone = document.createElement("td");
+      cellone.innerHTML = list[i];
+      let celltwo = document.createElement("td");
+      celltwo.innerHTML = list[i + 1];
+      let cellthree = document.createElement("td");
+      cellthree.innerHTML = list[i + 2];
+
+      newrow.appendChild(cellone);
+      newrow.appendChild(celltwo);
+      newrow.appendChild(cellthree);
+      tbody.appendChild(newrow);
+      i += 3;
     }
+
+    if (variable_for_table_formatting == 2) {
+      let finalrow = document.createElement("tr");
+      let fcellone = document.createElement("td");
+      fcellone.innerHTML = list[list.length - 2];
+      let fcelltwo = document.createElement("td");
+      fcelltwo.innerHTML = list[-1];
+      finalrow.appendChild(fcellone);
+      finalrow.appendChild(fcelltwo);
+      tbody.appendChild(finalrow);
+    } else if (variable_for_table_formatting == 1) {
+      let finalrow = document.createElement("tr");
+      let fcellone = document.createElement("td");
+      fcellone.innerHTML = list[list.length - 2];
+      finalrow.appendChild(fcellone);
+      tbody.appendChild(finalrow);
+    }
+
+    table.appendChild(tbody);
+    document.getElementById("cl-result").appendChild(table);
   }
 
-  function subjectcheck(courses) {
-    courses.forEach(verify);
+  function subjectcheck(courses, subject) {
+    listOutputProtocol(courses, subject);
   }
 
   function electivecheck(courses, n) {
@@ -118,29 +166,27 @@ const ClassesLeft = () => {
         //console.log(courses[i]);
         m = m + 1;
         if (m == n) {
-          console.log("Youve taken enough electives in this subject");
           result.push("Youve taken enough electives in this subject");
           return;
         }
       }
     }
-    console.log("you need " + (n - m) + " more electives in this subject");
     result.push("you need " + (n - m) + " more electives in this subject");
   }
 
   function sortclasses() {
     document.getElementById("cl-result").textContent = "";
-    result.push("COMP NEEDED:");
-    subjectcheck(compcourses);
+    result.push("Computer Science credit still needed:");
+    subjectcheck(compcourses, "Computer Science");
     result.push("ENG NEEDED:");
-    subjectcheck(engcourses);
+    subjectcheck(engcourses, "English");
     result.push("MATH NEEDED:");
-    subjectcheck(mathcourses);
+    subjectcheck(mathcourses, "Math");
     result.push("GEN ED NEEDED:");
-    subjectcheck(geencourses);
+    subjectcheck(geencourses, "General");
     result.push("PHYSICS/CHEMISTRY NEEDED:");
-    subjectcheck(physcourses);
-    subjectcheck(chemcourses);
+    subjectcheck(physcourses, "Physics");
+    subjectcheck(chemcourses, "Chemistry");
 
     result.push("MATH ELECTIVES:");
     electivecheck(mathelect, 1);
@@ -158,22 +204,11 @@ const ClassesLeft = () => {
     electivecheck(aaelect, 1);
     result.push("GLOBAL ELECTIVES:");
     electivecheck(globalelect, 1);
-
-    const node = document.createElement("h3");
-    for (let i = 0; i < result.length; i++) {
-      const textnode1 = document.createTextNode(result[i]);
-      node.appendChild(textnode1);
-      const nodebr = document.createElement("br");
-      document.getElementById("cl-result").appendChild(node);
-      node.appendChild(nodebr);
-    }
-
-    document.getElementById("cl-result").appendChild(node);
   }
 
   return (
-    <div>
-      <button onClick={sortclasses}>Needed Classes</button>
+    <div id="cl-section">
+      <Button onClick={sortclasses}>Needed Classes</Button>
       <div id="cl-result"></div>
     </div>
   );

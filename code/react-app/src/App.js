@@ -16,8 +16,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-        <Navbar />
-        <Login />
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculator" element={<Calculator />} />
@@ -33,4 +32,3 @@ class App extends React.Component {
 }
 
 export default App;
-

@@ -1,12 +1,10 @@
 .loginSection {
-    display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
-    gap: 2px;
-
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 2px;
 }
 
-  
 .googleButton {
-    grid-column: col-start 7 / span 11;
-    grid-row: 1;
+  grid-column: col-start 7 / span 11;
+  grid-row: 1;
 }

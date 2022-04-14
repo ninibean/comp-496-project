@@ -1,37 +1,73 @@
 .Calculator {
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
-    gap: 20px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  gap: 20px;
 }
 
 #instructions {
-    grid-column: col-start 2 / span 5;
-    grid-row: 1;
-    text-align: left;
-    font-weight: 500;
-    font-size: xx-large;
+  grid-column: col-start 2 / span 5;
+  grid-row: 1;
+  text-align: left;
+  font-weight: 500;
+  font-size: xx-large;
 }
 
 #classInfo {
-    grid-column: col-start 2 / span 5;
-    grid-row: 2;
+  grid-column: col-start 2 / span 5;
+  grid-row: 2;
 }
 
 #calculatedGPA {
-    grid-column: col-start 7 / span 9;
-    grid-row: 1;
-    font-weight: 500;
-    font-size: xx-large;
+  grid-column: col-start 7 / span 9;
+  grid-row: 1;
+  font-weight: 500;
+  font-size: xx-large;
 }
 #calculatedGPAValue {
-    grid-column: col-start 7 / span 9;
-    grid-row: 2;
-    font-weight: 700;
-    font-size: 3em;
+  grid-column: col-start 7 / span 9;
+  grid-row: 2;
+  font-weight: 700;
+  font-size: 3em;
 }
 
 #buttonField {
-    grid-column: col-start 2 / span 5;
-    grid-row: 3;
+  grid-column: col-start 2 / span 5;
+  grid-row: 3;
 }
+
+#loginstuff {
+  grid-column: col-start 2 / span 5;
+  grid-row: 4;
+  font-weight: 500;
+  font-size: xx-large;
+}
+
+#cl-result {
+  background-color: #e6e6e6;
+  grid-column: col-start 2 / span 5;
+  grid-row: 4;
+}
+
+#r-result {
+  background-color: #e6e6e6;
+  grid-column: col-start 2 / span 5;
+  grid-row: 4;
+}
+
+/*
+#cl-section {
+  background-color: #e6e6e6;
+  grid-column: col-start 2 / span 5;
+  grid-row: 9;
+  font-weight: 500;
+  font-size: xx-large;
+}
+
+#r-section {
+  background-color: cyan;
+  grid-column: col-start 7 / span 9;
+  grid-row: 9;
+  font-weight: 500;
+  font-size: xx-large;
+}*/
