@@ -17,6 +17,7 @@ class App extends React.Component {
       <div>
         <Router>
           <Navbar />
+          <Login />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculator" element={<Calculator />} />

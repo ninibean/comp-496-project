@@ -11,7 +11,7 @@
 }
 
 #navbar {
-    grid-column: col-start 2 / span 11;
+    grid-column: col-start 2 / span 4;
     grid-row: 2;
 }
 
