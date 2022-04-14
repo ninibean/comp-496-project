@@ -22,7 +22,7 @@ function Home() {
             </div>
 
             <div class="Home-Image">
-                <img id='logo' src="images/test-img.png" alt="Test Logo" />
+                <img id='logo' src="images/gglogo.jpg" alt="GPA Genie Logo" />
             </div>
 
         </div>
