@@ -3,13 +3,15 @@ import GoogleLogin from "react-google-login";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import "../Login.css";
+import { studentCoursesTaken } from "../Login";
 
 const Recommend = () => {
   let cleft = [];
   //let json3 = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
   //console.log(json3);
-  let json = require("../../backend/db.json");
-  const samplestudentclasses = json["studentsInfo"][31]["courses"];
+  //let json = require("../../backend/db.json");
+  const samplestudentclasses = studentCoursesTaken;
+
   const classes = [
     "COMP121",
     "COMP163",

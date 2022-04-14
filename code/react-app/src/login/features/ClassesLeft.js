@@ -2,10 +2,10 @@ import React from "react";
 import GoogleLogin from "react-google-login";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import { studentCoursesTaken } from "../Login";
 
 const ClassesLeft = () => {
-  let json = require("../../backend/db.json");
-  var samplestudentclasses = json["studentsInfo"][31]["courses"];
+  var samplestudentclasses = studentCoursesTaken;
   var result = [];
 
   const compcourses = [
@@ -139,7 +139,7 @@ const ClassesLeft = () => {
       let fcellone = document.createElement("td");
       fcellone.innerHTML = list[list.length - 2];
       let fcelltwo = document.createElement("td");
-      fcelltwo.innerHTML = list[-1];
+      fcelltwo.innerHTML = list[list.length - 1];
       finalrow.appendChild(fcellone);
       finalrow.appendChild(fcelltwo);
       tbody.appendChild(finalrow);
