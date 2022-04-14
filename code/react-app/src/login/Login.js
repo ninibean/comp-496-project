@@ -95,35 +95,37 @@ const Login = () => {
 
   return (
     <div className="loginSection">
-      {loginData ? (
-        stuorprof ? (
-          <div>
-            <GpaFetch></GpaFetch>
-            <ClassesLeft></ClassesLeft>
-            <Recommend></Recommend>
-            <div className="output-area"></div>
+        <div id="loginDiv">
+            {loginData ? (
+            stuorprof ? (
+            <div>
+                <GpaFetch></GpaFetch>
+                <ClassesLeft></ClassesLeft>
+                <Recommend></Recommend>
+                <div className="output-area"></div>
 
-            <Button onClick={logout}>Logout</Button>
-            <h3>You are logged in as {loginData.email}, a student account</h3>
-          </div>
+                <Button onClick={logout}>Logout</Button>
+                <h3>You are logged in as {loginData.email}, a student account</h3>
+            </div>
+            ) : (
+            <div>
+                <Button onClick={logout}>Logout</Button>
+                <h3>You are logged in as {loginData.email}, a professor account</h3>
+            </div>
+            )
         ) : (
-          <div>
-            <Button onClick={logout}>Logout</Button>
-            <h3>You are logged in as {loginData.email}, a prof account</h3>
-          </div>
-        )
-      ) : (
-        <div className="googleButton">
-          <h3>Log in using your Aggie Email: </h3>
-          <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Log in with Google"
-            onSuccess={login}
-            onfailure={loginFail}
-            cookiePolicy={"single_host_origin"}
-          ></GoogleLogin>
+            <div className="googleButton">
+                <h3>Log in using your Aggie Email: </h3>
+                <GoogleLogin
+                    clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                    buttonText="Log in with Google"
+                    onSuccess={login}
+                    onfailure={loginFail}
+                    cookiePolicy={"single_host_origin"}
+                ></GoogleLogin>
+            </div>
+        )}
         </div>
-      )}
     </div>
   );
 };
