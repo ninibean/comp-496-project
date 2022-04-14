@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import "./Calculator.css";
 import Login from "../login/Login.js";
+import { studentGpa } from "../login/Login.js";
 
 class Calculator extends React.Component {
   addClass() {
