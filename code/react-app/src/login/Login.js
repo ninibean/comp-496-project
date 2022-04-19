@@ -169,14 +169,15 @@ const Login = () => {
           )
         ) : (
           <div className="googleButton">
-            <h3>Log in using your Aggie Email: </h3>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Log in with Google"
-              onSuccess={login}
-              onfailure={loginFail}
-              cookiePolicy={"single_host_origin"}
-            ></GoogleLogin>
+            <h4>Log in using your Aggie Email:
+                <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="Log in with Google"
+                onSuccess={login}
+                onfailure={loginFail}
+                cookiePolicy={"single_host_origin"}
+                ></GoogleLogin>
+            </h4>
           </div>
         )}
       </div>

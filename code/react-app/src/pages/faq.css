@@ -6,7 +6,7 @@
   }
   
   #faq {
-    grid-column: col-start 2 / span 5;
+    grid-column: col-start 2 / span 6;
     grid-row: 1;
     text-align: left;
   }

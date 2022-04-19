@@ -110,10 +110,11 @@ class Calculator extends React.Component {
         <div id="calculatedGPA">
           <p> Overall GPA: </p>
         </div>
+        <div id="GPAMessage"></div>
         <div id="calculatedGPAValue"></div>
         <div id="cEligibility"></div>
         <div id="dEligibility"></div>
-        <div id="GPAMessage"></div>
+        
       </div>
     );
     
