@@ -1,4 +1,6 @@
 import React from 'react';
+import Cards from "../components/contactCards";
+
 
 const About = () =>{
     return (
@@ -6,6 +8,7 @@ const About = () =>{
             <h3>About</h3>
             <div>
                 <p> This page is under construction! </p>
+                <Cards></Cards>
             </div>
         </div>
     );
