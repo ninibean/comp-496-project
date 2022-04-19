@@ -12,6 +12,7 @@ const FAQPage = () =>{
                 <div>
                     <h3> Which type of student would benefit most from the GPA Genie?</h3>
                     <p> As of right now, GPA Genie is for use for computer science undergraduate students attending North Carolina A&T State University.</p>
+                    
                     <p> We hope to expand to other departments within the College of Engineering in the future.</p>
                     <br></br>
                 </div>
@@ -26,6 +27,7 @@ const FAQPage = () =>{
                 <div>
                     <h3> How is my overall GPA calculated?</h3>
                     <p> If you are logged into the system, the GPA Genie has pulled the GPA that is on file.</p>
+                    
                     <p> If you are using the GPA Genie Calculator, GPA takes the Credits Earned (Letter Grade * Course Weight) from each class and divides that number by the total amount of hours attempted. </p>
                     <br></br>
                 </div>

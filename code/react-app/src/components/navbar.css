@@ -11,8 +11,9 @@
 }
 
 #navbar {
-    grid-column: col-start 2 / span 6;
+    grid-column: col-start 2 / span 8;
     grid-row: 2;
+    font-size: 1.3em;
 }
 
 li {
@@ -34,8 +35,8 @@ li:hover {
 }
 
 .logo-image img{
-    width: 46px;
-    height: 46px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     overflow: hidden;
     margin-top: -6px;
