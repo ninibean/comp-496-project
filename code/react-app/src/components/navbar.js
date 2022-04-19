@@ -12,7 +12,11 @@ const navbar= () =>{
     <div id="navbar-wrapper">
         <div id='navbar'>
             <li id='home'>
-                <Link to="/" style={linkStyle}> GPA Genie </Link>
+                <Link to="/" style={linkStyle}> 
+                    <div class="logo-image">
+                        <img src="images/gglogo.jpg" alt="" class="img-fluid"></img>
+                    </div>
+                </Link>
             </li>
             <li>
                 <Link to="/calculator" style={linkStyle}> GPA Calculator </Link>

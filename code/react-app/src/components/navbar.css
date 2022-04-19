@@ -4,14 +4,14 @@
   display: grid;
   grid-template-columns: repeat(12, [col-start] 1fr);
   gap: 2px;
-  font-weight: 500;
+  font-weight: 700;
 }
 .Home-Page > * {
   grid-column: col-start / span 12;
 }
 
 #navbar {
-    grid-column: col-start 2 / span 4;
+    grid-column: col-start 2 / span 6;
     grid-row: 2;
 }
 
@@ -29,3 +29,14 @@ li {
   
 }
 
+li:hover {
+    background-color: rgba(153, 153, 153, 0.3);
+}
+
+.logo-image img{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
