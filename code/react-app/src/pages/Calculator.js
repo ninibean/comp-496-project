@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import "./Calculator.css";
-import Login from "../login/Login.js";
-import { studentGpa } from "../login/Login.js";
 
 class Calculator extends React.Component {
   addClass() {
@@ -62,7 +60,7 @@ class Calculator extends React.Component {
 
     // Changes the color of the GPA Value text based on a condition
     var col = document.getElementById("calculatedGPAValue");
-    if (finalGPA < 3.0) {
+    if (finalGPA < 2.0) {
       col.style.color = "#CD2026";
     } else {
       col.style.color = "green";
@@ -70,7 +68,7 @@ class Calculator extends React.Component {
 
     // checks Good Academic Standing
     var message = document.getElementById("GPAMessage");
-    if (finalGPA < 3.0) {
+    if (finalGPA < 2.0) {
         message.innerHTML = "You are not in Good Academic Standing. No worries! This is the time to get you back on track.";
     } else {
         message.innerHTML = "Congrats! You are in Good Academic Standing. Keep up the good work!";
