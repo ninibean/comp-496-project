@@ -105,7 +105,7 @@ const ClassesLeft = () => {
   function listOutputProtocol(list, subject) {
     const nodet = document.createElement("h5");
     const textnode1t = document.createTextNode(
-      "You still need to take of these " + subject + " courses:"
+      "You still need to take one of these " + subject + " courses:"
     );
     nodet.appendChild(textnode1t);
     const nodebrt = document.createElement("br");
@@ -166,12 +166,12 @@ const ClassesLeft = () => {
         //console.log(courses[i]);
         m = m + 1;
         if (m == n) {
-          result.push("Youve taken enough electives in this subject");
+          result.push("You have taken enough electives in this subject.");
           return;
         }
       }
     }
-    result.push("you need " + (n - m) + " more electives in this subject");
+    result.push("You need " + (n - m) + " more electives in this subject.");
   }
 
   function sortclasses() {

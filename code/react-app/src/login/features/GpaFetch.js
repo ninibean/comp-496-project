@@ -9,10 +9,10 @@ const GpaFetch = () => {
   function showresult() {
     console.log(studentGpa + " lol");
     var flavortext = "";
-    if (studentGpa >= 3.0) {
-      flavortext = ", which is good";
+    if (studentGpa >= 2.0) {
+      flavortext = ", you are in Academic Standing. Good job!";
     } else {
-      flavortext = ", which is bad";
+      flavortext = ", you are not in Academic Standing. Let's get to work!";
     }
     //console.log(samplestudentgpa);
     //console.log(flavortext);
