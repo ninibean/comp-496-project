@@ -198,6 +198,13 @@
       "name": "Akinlabi Mason-Hogans",
       "courses": ["COMP163", "COMP361", "COMP496", "MATH351", "COMP476"],
       "gpa": 2.38
+    },
+
+    {
+      "id": 32,
+      "name": "Niara Patterson",
+      "courses": ["COMP385", "COMP361", "COMP476", "MATH351", "COMP390"],
+      "gpa": 3.46
     }
   ]
 }
