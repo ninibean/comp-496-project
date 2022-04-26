@@ -52,6 +52,27 @@ const Login = () => {
     setLoginData(data);
     localStorage.setItem("loginData", JSON.stringify(data));
 
+   
+    const api_url = 'https://aggie-api-apps.herokuapp.com/studentsInfo';
+    
+    async function getAggieApi(){
+    const response = await fetch(api_url);
+    const data = await response.json();
+    const obj1 = JSON.parse(JSON.stringify(data))
+    const elePrint = data[2]["name"];
+    console.log(elePrint)
+    //document.getElementById("testing").textContent=elePrint;
+    
+    }
+    
+    
+    getAggieApi();
+    
+    
+    
+    
+       
+
     //
     //
     /*
