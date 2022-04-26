@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
   
 
@@ -17,11 +18,11 @@ function Home() {
 
             <div class='Home-Text'>
                 <p> The one-stop shop to demystifying your academic progress and success </p>
-                <button type='submit' onClick={routeChange} id='calculate-button'> Calculate My GPA</button>
+                <Button onClick={routeChange} id='calculate-button'> Calculate My GPA</Button>
             </div>
 
             <div class="Home-Image">
-                <img id='logo' src="images/test-img.png" alt="Test Logo" />
+                <img id='logo' src="images/gglogo.jpg" alt="GPA Genie Logo" />
             </div>
 
         </div>

@@ -157,11 +157,20 @@ var ButtonBase = /*#__PURE__*/React.forwardRef(function ButtonBase(inProps, ref)
       }
     };
   }, []);
+
+  var _React$useState2 = React.useState(false),
+      mountedState = _React$useState2[0],
+      setMountedState = _React$useState2[1];
+
   React.useEffect(function () {
-    if (focusVisible && focusRipple && !disableRipple) {
+    setMountedState(true);
+  }, []);
+  var enableTouchRipple = mountedState && !disableRipple && !disabled;
+  React.useEffect(function () {
+    if (focusVisible && focusRipple && !disableRipple && mountedState) {
       rippleRef.current.pulsate();
     }
-  }, [disableRipple, focusRipple, focusVisible]);
+  }, [disableRipple, focusRipple, focusVisible, mountedState]);
 
   function useRippleHandler(rippleAction, eventCallback) {
     var skipRippleAction = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : disableTouchRipple;
@@ -306,15 +315,6 @@ var ButtonBase = /*#__PURE__*/React.forwardRef(function ButtonBase(inProps, ref)
 
   var handleOwnRef = useForkRef(focusVisibleRef, buttonRef);
   var handleRef = useForkRef(ref, handleOwnRef);
-
-  var _React$useState2 = React.useState(false),
-      mountedState = _React$useState2[0],
-      setMountedState = _React$useState2[1];
-
-  React.useEffect(function () {
-    setMountedState(true);
-  }, []);
-  var enableTouchRipple = mountedState && !disableRipple && !disabled;
 
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks

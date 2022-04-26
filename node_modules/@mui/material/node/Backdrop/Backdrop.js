@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.backdropClasses = void 0;
+exports.default = void 0;
 
 var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
 
@@ -15,9 +15,9 @@ var React = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _base = require("@mui/base");
+var _clsx = _interopRequireDefault(require("clsx"));
 
-var _BackdropUnstyled = _interopRequireWildcard(require("@mui/base/BackdropUnstyled"));
+var _base = require("@mui/base");
 
 var _styled = _interopRequireDefault(require("../styles/styled"));
 
@@ -25,22 +25,25 @@ var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
 
 var _Fade = _interopRequireDefault(require("../Fade"));
 
+var _backdropClasses = require("./backdropClasses");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
-const _excluded = ["children", "components", "componentsProps", "className", "invisible", "open", "transitionDuration", "TransitionComponent"];
+const _excluded = ["children", "component", "components", "componentsProps", "className", "invisible", "open", "transitionDuration", "TransitionComponent"];
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const backdropClasses = _BackdropUnstyled.backdropUnstyledClasses;
-exports.backdropClasses = backdropClasses;
-
-const extendUtilityClasses = ownerState => {
+const useUtilityClasses = ownerState => {
   const {
-    classes
+    classes,
+    invisible
   } = ownerState;
-  return classes;
+  const slots = {
+    root: ['root', invisible && 'invisible']
+  };
+  return (0, _base.unstable_composeClasses)(slots, _backdropClasses.getBackdropUtilityClass, classes);
 };
 
 const BackdropRoot = (0, _styled.default)('div', {
@@ -69,7 +72,7 @@ const BackdropRoot = (0, _styled.default)('div', {
   backgroundColor: 'transparent'
 }));
 const Backdrop = /*#__PURE__*/React.forwardRef(function Backdrop(inProps, ref) {
-  var _componentsProps$root;
+  var _components$Root, _componentsProps$root;
 
   const props = (0, _useThemeProps.default)({
     props: inProps,
@@ -77,6 +80,7 @@ const Backdrop = /*#__PURE__*/React.forwardRef(function Backdrop(inProps, ref) {
   });
   const {
     children,
+    component = 'div',
     components = {},
     componentsProps = {},
     className,
@@ -88,24 +92,19 @@ const Backdrop = /*#__PURE__*/React.forwardRef(function Backdrop(inProps, ref) {
   } = props,
         other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
   const ownerState = (0, _extends2.default)({}, props, {
+    component,
     invisible
   });
-  const classes = extendUtilityClasses(ownerState);
+  const classes = useUtilityClasses(ownerState);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(TransitionComponent, (0, _extends2.default)({
     in: open,
     timeout: transitionDuration
   }, other, {
-    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(_BackdropUnstyled.default, {
-      className: className,
-      invisible: invisible,
-      components: (0, _extends2.default)({
-        Root: BackdropRoot
-      }, components),
-      componentsProps: {
-        root: (0, _extends2.default)({}, componentsProps.root, (!components.Root || !(0, _base.isHostComponent)(components.Root)) && {
-          ownerState: (0, _extends2.default)({}, (_componentsProps$root = componentsProps.root) == null ? void 0 : _componentsProps$root.ownerState)
-        })
-      },
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(BackdropRoot, {
+      "aria-hidden": true,
+      as: (_components$Root = components.Root) != null ? _components$Root : component,
+      className: (0, _clsx.default)(classes.root, className),
+      ownerState: (0, _extends2.default)({}, ownerState, (_componentsProps$root = componentsProps.root) == null ? void 0 : _componentsProps$root.ownerState),
       classes: classes,
       ref: ref,
       children: children
@@ -134,6 +133,12 @@ process.env.NODE_ENV !== "production" ? Backdrop.propTypes
    * @ignore
    */
   className: _propTypes.default.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: _propTypes.default.elementType,
 
   /**
    * The components used for each slot inside the Backdrop.

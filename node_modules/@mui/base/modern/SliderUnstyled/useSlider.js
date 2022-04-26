@@ -473,7 +473,11 @@ export default function useSlider(props) {
     stopListening();
   });
   const handleTouchStart = useEventCallback(nativeEvent => {
-    // If touch-action: none; is not supported we need to prevent the scroll manually.
+    if (disabled) {
+      return;
+    } // If touch-action: none; is not supported we need to prevent the scroll manually.
+
+
     if (!doesSupportTouchActionNone()) {
       nativeEvent.preventDefault();
     }
@@ -542,6 +546,10 @@ export default function useSlider(props) {
 
   const createHandleMouseDown = otherHandlers => event => {
     otherHandlers.onMouseDown?.(event);
+
+    if (disabled) {
+      return;
+    }
 
     if (event.defaultPrevented) {
       return;

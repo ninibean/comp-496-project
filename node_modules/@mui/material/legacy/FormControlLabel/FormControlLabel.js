@@ -83,7 +83,7 @@ var FormControlLabel = /*#__PURE__*/React.forwardRef(function FormControlLabel(i
       disabledProp = props.disabled,
       disableTypography = props.disableTypography,
       inputRef = props.inputRef,
-      label = props.label,
+      labelProp = props.label,
       _props$labelPlacement = props.labelPlacement,
       labelPlacement = _props$labelPlacement === void 0 ? 'end' : _props$labelPlacement,
       name = props.name,
@@ -118,23 +118,28 @@ var FormControlLabel = /*#__PURE__*/React.forwardRef(function FormControlLabel(i
 
   var ownerState = _extends({}, props, {
     disabled: disabled,
-    label: label,
     labelPlacement: labelPlacement,
     error: fcs.error
   });
 
   var classes = useUtilityClasses(ownerState);
+  var label = labelProp;
+
+  if (label != null && label.type !== Typography && !disableTypography) {
+    label = /*#__PURE__*/_jsx(Typography, _extends({
+      component: "span",
+      className: classes.label
+    }, componentsProps.typography, {
+      children: label
+    }));
+  }
+
   return /*#__PURE__*/_jsxs(FormControlLabelRoot, _extends({
     className: clsx(classes.root, className),
     ownerState: ownerState,
     ref: ref
   }, other, {
-    children: [/*#__PURE__*/React.cloneElement(control, controlProps), label.type === Typography || disableTypography ? label : /*#__PURE__*/_jsx(Typography, _extends({
-      component: "span",
-      className: classes.label
-    }, componentsProps.typography, {
-      children: label
-    }))]
+    children: [/*#__PURE__*/React.cloneElement(control, controlProps), label]
   }));
 });
 process.env.NODE_ENV !== "production" ? FormControlLabel.propTypes
@@ -191,7 +196,7 @@ process.env.NODE_ENV !== "production" ? FormControlLabel.propTypes
   /**
    * A text or an element to be used in an enclosing label element.
    */
-  label: PropTypes.oneOfType([PropTypes.element, PropTypes.number, PropTypes.string]).isRequired,
+  label: PropTypes.node,
 
   /**
    * The position of the label.

@@ -34,7 +34,7 @@ export function getOptionsFromChildren(children) {
     const element = node;
     const option = {
       value: element.props.value,
-      label: element.props.children,
+      label: element.props.label || element.props.children,
       disabled: (_element$props$disabl2 = element.props.disabled) != null ? _element$props$disabl2 : false
     };
     selectChildren.push(option);

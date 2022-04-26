@@ -24,11 +24,11 @@ const useUtilityClasses = ownerState => {
  *
  * Demos:
  *
- * - [Tabs](https://mui.com/components/tabs/)
+ * - [Tabs](https://mui.com/base/react-tabs/)
  *
  * API:
  *
- * - [TabsUnstyled API](https://mui.com/api/tabs-unstyled/)
+ * - [TabsUnstyled API](https://mui.com/base/api/tabs-unstyled/)
  */
 
 

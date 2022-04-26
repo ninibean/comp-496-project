@@ -10,7 +10,7 @@
 }
 
 #logo {
-  max-width: 100%;
+  max-width: 75%;
   height: auto;
 }
 
@@ -21,7 +21,6 @@
   font-size: 24px;
   line-height: 29px;
   align-items: center;
-  background: #c4c4c4;
   border-radius: 10px;
   width: 345px;
   height: 71px;

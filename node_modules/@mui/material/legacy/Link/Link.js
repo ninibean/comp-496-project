@@ -1,3 +1,4 @@
+import _toConsumableArray from "@babel/runtime/helpers/esm/toConsumableArray";
 import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
 import _extends from "@babel/runtime/helpers/esm/extends";
@@ -9,6 +10,7 @@ import { unstable_composeClasses as composeClasses } from '@mui/base';
 import { alpha, getPath } from '@mui/system';
 import capitalize from '../utils/capitalize';
 import styled from '../styles/styled';
+import useTheme from '../styles/useTheme';
 import useThemeProps from '../styles/useThemeProps';
 import useIsFocusVisible from '../utils/useIsFocusVisible';
 import useForkRef from '../utils/useForkRef';
@@ -91,6 +93,7 @@ var LinkRoot = styled(Typography, {
   }));
 });
 var Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
+  var theme = useTheme();
   var props = useThemeProps({
     props: inProps,
     name: 'MuiLink'
@@ -108,7 +111,10 @@ var Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
       underline = _props$underline === void 0 ? 'always' : _props$underline,
       _props$variant = props.variant,
       variant = _props$variant === void 0 ? 'inherit' : _props$variant,
-      other = _objectWithoutProperties(props, ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant"]);
+      sx = props.sx,
+      other = _objectWithoutProperties(props, ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant", "sx"]);
+
+  var sxColor = typeof sx === 'function' ? sx(theme).color : sx == null ? void 0 : sx.color;
 
   var _useIsFocusVisible = useIsFocusVisible(),
       isFocusVisibleRef = _useIsFocusVisible.isFocusVisibleRef,
@@ -147,7 +153,9 @@ var Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
   };
 
   var ownerState = _extends({}, props, {
-    color: color,
+    // It is too complex to support any types of `sx`.
+    // Need to find a better way to get rid of the color manipulation for `textDecorationColor`.
+    color: (typeof sxColor === 'function' ? sxColor(theme) : sxColor) || color,
     component: component,
     focusVisible: focusVisible,
     underline: underline,
@@ -156,15 +164,18 @@ var Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
 
   var classes = useUtilityClasses(ownerState);
   return /*#__PURE__*/_jsx(LinkRoot, _extends({
+    color: color,
     className: clsx(classes.root, className),
     classes: TypographyClasses,
-    color: color,
     component: component,
     onBlur: handleBlur,
     onFocus: handleFocus,
     ref: handlerRef,
     ownerState: ownerState,
-    variant: variant
+    variant: variant,
+    sx: [].concat(_toConsumableArray(inProps.color ? [{
+      color: colorTransformations[color] || color
+    }] : []), _toConsumableArray(Array.isArray(sx) ? sx : [sx]))
   }, other));
 });
 process.env.NODE_ENV !== "production" ? Link.propTypes
@@ -220,7 +231,7 @@ process.env.NODE_ENV !== "production" ? Link.propTypes
   sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
 
   /**
-   * `classes` prop applied to the [`Typography`](/api/typography/) element.
+   * `classes` prop applied to the [`Typography`](/material-ui/api/typography/) element.
    */
   TypographyClasses: PropTypes.object,
 

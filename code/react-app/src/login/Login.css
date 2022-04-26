@@ -4,7 +4,7 @@
   gap: 2px;
 }
 
-.googleButton {
-  grid-column: col-start 7 / span 11;
+#loginDiv {
+  grid-column: col-start 2/ span 7;
   grid-row: 1;
 }

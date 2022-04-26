@@ -15,11 +15,11 @@ import { jsxs as _jsxs } from "react/jsx-runtime";
  *
  * Demos:
  *
- * - [Switches](https://mui.com/components/switches/)
+ * - [Switch](https://mui.com/base/react-switch/)
  *
  * API:
  *
- * - [SwitchUnstyled API](https://mui.com/api/switch-unstyled/)
+ * - [SwitchUnstyled API](https://mui.com/base/api/switch-unstyled/)
  */
 const SwitchUnstyled = /*#__PURE__*/React.forwardRef(function SwitchUnstyled(props, ref) {
   const {

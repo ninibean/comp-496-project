@@ -8,6 +8,23 @@ import Recommend from "./features/Recommend";
 import Button from "@mui/material/Button";
 import "../pages/Calculator.css";
 
+/*
+const jsonData = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
+const express = require("express");
+const app = express();
+
+app.get("/quiz", (req, res) => {
+  res.json(jsonData);
+});
+
+app.serve(3000);*/
+var studentId = "";
+var studentName = "";
+var studentEmail = "";
+var studentCourses = "";
+var studentCoursesTaken = "";
+var studentGpa = "";
+
 const Login = () => {
   var atypes = false;
 
@@ -114,39 +131,85 @@ const Login = () => {
     return false;
   }
 
+  const api_url = "https://aggie-api-apps.herokuapp.com/studentsInfo";
+
+  async function getAggieApi() {
+    const response = await fetch(api_url);
+    const data = await response.json();
+    const obj1 = JSON.parse(JSON.stringify(data));
+    //var thisStudent = -1;
+    //console.log(elePrint);
+
+    for (let i = 0; i < data.length; i++) {
+      if (data[i]["email"] == loginData.email) {
+        //thisStudent=i;
+        studentId = data[i]["id"];
+        studentName = data[i]["name"];
+        studentEmail = data[i]["email"];
+        studentCourses = data[i]["courses"];
+        studentCoursesTaken = data[i]["taken"];
+        studentGpa = data[i]["gpa"];
+        /*console.log(
+          studentId +
+            studentName +
+            studentEmail +
+            studentCourses +
+            studentCoursesTaken +
+            studentGpa
+        );*/
+        break;
+      }
+    }
+
+    //document.getElementById("testing").textContent = elePrint;
+  }
+
+  getAggieApi();
+
   return (
     <div className="loginSection">
-      {loginData ? (
-        stuorprof ? (
-          <div>
-            <GpaFetch></GpaFetch>
-            <ClassesLeft></ClassesLeft>
-            <Recommend></Recommend>
-            <div className="output-area"></div>
+      <div id="loginDiv">
+        {loginData ? (
+          stuorprof ? (
+            <div>
+              <GpaFetch></GpaFetch>
+              <ClassesLeft></ClassesLeft>
+              <Recommend></Recommend>
+              <div className="output-area"></div>
 
-            <Button onClick={logout}>Logout</Button>
-            <h3>You are logged in as {loginData.email}, a student account</h3>
-          </div>
+              <Button onClick={logout}>Logout</Button>
+              <h3>You are logged in as {loginData.email}, a student account</h3>
+            </div>
+          ) : (
+            <div>
+              <Button onClick={logout}>Logout</Button>
+              <h3>
+                You are logged in as {loginData.email}, a professor account
+              </h3>
+            </div>
+          )
         ) : (
-          <div>
-            <Button onClick={logout}>Logout</Button>
-            <h3>You are logged in as {loginData.email}, a prof account</h3>
+          <div className="googleButton">
+            <h3>Log in using your Aggie Email: </h3>
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              buttonText="Log in with Google"
+              onSuccess={login}
+              onfailure={loginFail}
+              cookiePolicy={"single_host_origin"}
+            ></GoogleLogin>
           </div>
-        )
-      ) : (
-        <div className="googleButton">
-          <h3 id="testing">Log in using your Aggie Email: </h3>
-          <GoogleLogin
-            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-            buttonText="Log in with Google"
-            onSuccess={login}
-            onfailure={loginFail}
-            cookiePolicy={"single_host_origin"}
-          ></GoogleLogin>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
-
+export {
+  studentId,
+  studentName,
+  studentEmail,
+  studentCourses,
+  studentCoursesTaken,
+  studentGpa,
+};
 export default Login;

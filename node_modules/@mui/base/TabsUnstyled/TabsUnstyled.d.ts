@@ -4,11 +4,11 @@ import { TabsUnstyledTypeMap } from './TabsUnstyledProps';
  *
  * Demos:
  *
- * - [Tabs](https://mui.com/components/tabs/)
+ * - [Tabs](https://mui.com/base/react-tabs/)
  *
  * API:
  *
- * - [TabsUnstyled API](https://mui.com/api/tabs-unstyled/)
+ * - [TabsUnstyled API](https://mui.com/base/api/tabs-unstyled/)
  */
 declare const TabsUnstyled: OverridableComponent<TabsUnstyledTypeMap<{}, "div">>;
 export default TabsUnstyled;

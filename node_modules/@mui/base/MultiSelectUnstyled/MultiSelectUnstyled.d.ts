@@ -6,10 +6,10 @@ declare const _default: <TValue extends {}>(props: MultiSelectUnstyledProps<TVal
  *
  * Demos:
  *
- * - [Selects](https://mui.com/components/selects/)
+ * - [Select](https://mui.com/base/react-select/)
  *
  * API:
  *
- * - [MultiSelectUnstyled API](https://mui.com/api/multi-select-unstyled/)
+ * - [MultiSelectUnstyled API](https://mui.com/base/api/multi-select-unstyled/)
  */
 export default _default;

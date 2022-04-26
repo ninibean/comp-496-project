@@ -9,46 +9,30 @@ var _utils = require("@mui/utils");
 
 function useBadge(props) {
   const {
-    anchorOrigin: anchorOriginProp = {
-      vertical: 'top',
-      horizontal: 'right'
-    },
     badgeContent: badgeContentProp,
     invisible: invisibleProp = false,
     max: maxProp = 99,
-    showZero = false,
-    variant: variantProp = 'standard'
+    showZero = false
   } = props;
   const prevProps = (0, _utils.usePreviousProps)({
-    anchorOrigin: anchorOriginProp,
     badgeContent: badgeContentProp,
-    max: maxProp,
-    variant: variantProp
+    max: maxProp
   });
   let invisible = invisibleProp;
 
-  if (invisibleProp === false && (badgeContentProp === 0 && !showZero || badgeContentProp == null && variantProp !== 'dot')) {
+  if (invisibleProp === false && badgeContentProp === 0 && !showZero) {
     invisible = true;
   }
 
   const {
-    anchorOrigin = anchorOriginProp,
     badgeContent,
-    max = maxProp,
-    variant = variantProp
+    max = maxProp
   } = invisible ? prevProps : props;
-  let displayValue = '';
-
-  if (variant !== 'dot') {
-    displayValue = badgeContent && Number(badgeContent) > max ? `${max}+` : badgeContent;
-  }
-
+  const displayValue = badgeContent && Number(badgeContent) > max ? `${max}+` : badgeContent;
   return {
-    anchorOrigin,
     badgeContent,
     invisible,
     max,
-    variant,
     displayValue
   };
 }

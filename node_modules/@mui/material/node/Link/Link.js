@@ -27,6 +27,8 @@ var _capitalize = _interopRequireDefault(require("../utils/capitalize"));
 
 var _styled = _interopRequireDefault(require("../styles/styled"));
 
+var _useTheme = _interopRequireDefault(require("../styles/useTheme"));
+
 var _useThemeProps = _interopRequireDefault(require("../styles/useThemeProps"));
 
 var _useIsFocusVisible = _interopRequireDefault(require("../utils/useIsFocusVisible"));
@@ -39,7 +41,7 @@ var _linkClasses = _interopRequireWildcard(require("./linkClasses"));
 
 var _jsxRuntime = require("react/jsx-runtime");
 
-const _excluded = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant"];
+const _excluded = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant", "sx"];
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -127,6 +129,7 @@ const LinkRoot = (0, _styled.default)(_Typography.default, {
   });
 });
 const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
+  const theme = (0, _useTheme.default)();
   const props = (0, _useThemeProps.default)({
     props: inProps,
     name: 'MuiLink'
@@ -139,9 +142,11 @@ const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
     onFocus,
     TypographyClasses,
     underline = 'always',
-    variant = 'inherit'
+    variant = 'inherit',
+    sx
   } = props,
         other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
+  const sxColor = typeof sx === 'function' ? sx(theme).color : sx == null ? void 0 : sx.color;
   const {
     isFocusVisibleRef,
     onBlur: handleBlurVisible,
@@ -176,7 +181,9 @@ const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
   };
 
   const ownerState = (0, _extends2.default)({}, props, {
-    color,
+    // It is too complex to support any types of `sx`.
+    // Need to find a better way to get rid of the color manipulation for `textDecorationColor`.
+    color: (typeof sxColor === 'function' ? sxColor(theme) : sxColor) || color,
     component,
     focusVisible,
     underline,
@@ -184,15 +191,18 @@ const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
   });
   const classes = useUtilityClasses(ownerState);
   return /*#__PURE__*/(0, _jsxRuntime.jsx)(LinkRoot, (0, _extends2.default)({
+    color: color,
     className: (0, _clsx.default)(classes.root, className),
     classes: TypographyClasses,
-    color: color,
     component: component,
     onBlur: handleBlur,
     onFocus: handleFocus,
     ref: handlerRef,
     ownerState: ownerState,
-    variant: variant
+    variant: variant,
+    sx: [...(inProps.color ? [{
+      color: colorTransformations[color] || color
+    }] : []), ...(Array.isArray(sx) ? sx : [sx])]
   }, other));
 });
 process.env.NODE_ENV !== "production" ? Link.propTypes
@@ -248,7 +258,7 @@ process.env.NODE_ENV !== "production" ? Link.propTypes
   sx: _propTypes.default.oneOfType([_propTypes.default.arrayOf(_propTypes.default.oneOfType([_propTypes.default.func, _propTypes.default.object, _propTypes.default.bool])), _propTypes.default.func, _propTypes.default.object]),
 
   /**
-   * `classes` prop applied to the [`Typography`](/api/typography/) element.
+   * `classes` prop applied to the [`Typography`](/material-ui/api/typography/) element.
    */
   TypographyClasses: _propTypes.default.object,
 

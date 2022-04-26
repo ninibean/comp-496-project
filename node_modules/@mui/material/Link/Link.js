@@ -1,6 +1,6 @@
 import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
 import _extends from "@babel/runtime/helpers/esm/extends";
-const _excluded = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant"];
+const _excluded = ["className", "color", "component", "onBlur", "onFocus", "TypographyClasses", "underline", "variant", "sx"];
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -9,6 +9,7 @@ import { unstable_composeClasses as composeClasses } from '@mui/base';
 import { alpha, getPath } from '@mui/system';
 import capitalize from '../utils/capitalize';
 import styled from '../styles/styled';
+import useTheme from '../styles/useTheme';
 import useThemeProps from '../styles/useThemeProps';
 import useIsFocusVisible from '../utils/useIsFocusVisible';
 import useForkRef from '../utils/useForkRef';
@@ -97,6 +98,7 @@ const LinkRoot = styled(Typography, {
   });
 });
 const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
+  const theme = useTheme();
   const props = useThemeProps({
     props: inProps,
     name: 'MuiLink'
@@ -110,10 +112,12 @@ const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
     onFocus,
     TypographyClasses,
     underline = 'always',
-    variant = 'inherit'
+    variant = 'inherit',
+    sx
   } = props,
         other = _objectWithoutPropertiesLoose(props, _excluded);
 
+  const sxColor = typeof sx === 'function' ? sx(theme).color : sx == null ? void 0 : sx.color;
   const {
     isFocusVisibleRef,
     onBlur: handleBlurVisible,
@@ -148,7 +152,9 @@ const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
   };
 
   const ownerState = _extends({}, props, {
-    color,
+    // It is too complex to support any types of `sx`.
+    // Need to find a better way to get rid of the color manipulation for `textDecorationColor`.
+    color: (typeof sxColor === 'function' ? sxColor(theme) : sxColor) || color,
     component,
     focusVisible,
     underline,
@@ -157,15 +163,18 @@ const Link = /*#__PURE__*/React.forwardRef(function Link(inProps, ref) {
 
   const classes = useUtilityClasses(ownerState);
   return /*#__PURE__*/_jsx(LinkRoot, _extends({
+    color: color,
     className: clsx(classes.root, className),
     classes: TypographyClasses,
-    color: color,
     component: component,
     onBlur: handleBlur,
     onFocus: handleFocus,
     ref: handlerRef,
     ownerState: ownerState,
-    variant: variant
+    variant: variant,
+    sx: [...(inProps.color ? [{
+      color: colorTransformations[color] || color
+    }] : []), ...(Array.isArray(sx) ? sx : [sx])]
   }, other));
 });
 process.env.NODE_ENV !== "production" ? Link.propTypes
@@ -221,7 +230,7 @@ process.env.NODE_ENV !== "production" ? Link.propTypes
   sx: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.func, PropTypes.object, PropTypes.bool])), PropTypes.func, PropTypes.object]),
 
   /**
-   * `classes` prop applied to the [`Typography`](/api/typography/) element.
+   * `classes` prop applied to the [`Typography`](/material-ui/api/typography/) element.
    */
   TypographyClasses: PropTypes.object,
 

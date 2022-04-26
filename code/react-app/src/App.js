@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactDOM } from "react-dom";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
@@ -10,13 +9,24 @@ import FAQ from "./pages/faq";
 import Resources from "./pages/Resources";
 import NotFound from "./pages/NotFound";
 import Login from "./login/Login";
+import { useEffect, useState } from "react";
+import { Users } from "./pages/users";
+import "./pages/app.css";
+import Table from "./pages/Table";
 
-class App extends React.Component {
-  render() {
+
+
+   function App() {
+    const [query, setQuery] = useState("");
+ const search = (data) =>{
+   return data.filter((item)=> item.name.toLowerCase().includes(query));
+ };
+  
     return (
       <div>
         <Router>
           <Navbar />
+          <Login />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculator" element={<Calculator />} />
@@ -26,9 +36,19 @@ class App extends React.Component {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
+
+        <div className="app">
+       <input
+       type="text"
+         className="search"
+         placeholder="Search..."
+         onChange={(e) => setQuery(e.target.value)}
+       />
+     <Table data={search(Users)} />
+   </div>
       </div>
     );
-  }
+  
 }
 
 export default App;

@@ -170,11 +170,16 @@ const ButtonBase = /*#__PURE__*/React.forwardRef(function ButtonBase(inProps, re
       buttonRef.current.focus();
     }
   }), []);
+  const [mountedState, setMountedState] = React.useState(false);
   React.useEffect(() => {
-    if (focusVisible && focusRipple && !disableRipple) {
+    setMountedState(true);
+  }, []);
+  const enableTouchRipple = mountedState && !disableRipple && !disabled;
+  React.useEffect(() => {
+    if (focusVisible && focusRipple && !disableRipple && mountedState) {
       rippleRef.current.pulsate();
     }
-  }, [disableRipple, focusRipple, focusVisible]);
+  }, [disableRipple, focusRipple, focusVisible, mountedState]);
 
   function useRippleHandler(rippleAction, eventCallback, skipRippleAction = disableTouchRipple) {
     return (0, _useEventCallback.default)(event => {
@@ -318,11 +323,6 @@ const ButtonBase = /*#__PURE__*/React.forwardRef(function ButtonBase(inProps, re
 
   const handleOwnRef = (0, _useForkRef.default)(focusVisibleRef, buttonRef);
   const handleRef = (0, _useForkRef.default)(ref, handleOwnRef);
-  const [mountedState, setMountedState] = React.useState(false);
-  React.useEffect(() => {
-    setMountedState(true);
-  }, []);
-  const enableTouchRipple = mountedState && !disableRipple && !disabled;
 
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks

@@ -119,7 +119,7 @@ const FormControlLabel = /*#__PURE__*/React.forwardRef(function FormControlLabel
     control,
     disabled: disabledProp,
     disableTypography,
-    label,
+    label: labelProp,
     labelPlacement = 'end'
   } = props,
         other = (0, _objectWithoutPropertiesLoose2.default)(props, _excluded);
@@ -149,22 +149,27 @@ const FormControlLabel = /*#__PURE__*/React.forwardRef(function FormControlLabel
   });
   const ownerState = (0, _extends2.default)({}, props, {
     disabled,
-    label,
     labelPlacement,
     error: fcs.error
   });
   const classes = useUtilityClasses(ownerState);
+  let label = labelProp;
+
+  if (label != null && label.type !== _Typography.default && !disableTypography) {
+    label = /*#__PURE__*/(0, _jsxRuntime.jsx)(_Typography.default, (0, _extends2.default)({
+      component: "span",
+      className: classes.label
+    }, componentsProps.typography, {
+      children: label
+    }));
+  }
+
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(FormControlLabelRoot, (0, _extends2.default)({
     className: (0, _clsx.default)(classes.root, className),
     ownerState: ownerState,
     ref: ref
   }, other, {
-    children: [/*#__PURE__*/React.cloneElement(control, controlProps), label.type === _Typography.default || disableTypography ? label : /*#__PURE__*/(0, _jsxRuntime.jsx)(_Typography.default, (0, _extends2.default)({
-      component: "span",
-      className: classes.label
-    }, componentsProps.typography, {
-      children: label
-    }))]
+    children: [/*#__PURE__*/React.cloneElement(control, controlProps), label]
   }));
 });
 process.env.NODE_ENV !== "production" ? FormControlLabel.propTypes
@@ -221,7 +226,7 @@ process.env.NODE_ENV !== "production" ? FormControlLabel.propTypes
   /**
    * A text or an element to be used in an enclosing label element.
    */
-  label: _propTypes.default.oneOfType([_propTypes.default.element, _propTypes.default.number, _propTypes.default.string]).isRequired,
+  label: _propTypes.default.node,
 
   /**
    * The position of the label.

@@ -27,7 +27,7 @@ function clamp(value) {
 
 
 export function hexToRgb(color) {
-  color = color.substr(1);
+  color = color.slice(1);
   var re = new RegExp(".{1,".concat(color.length >= 6 ? 2 : 1, "}"), 'g');
   var colors = color.match(re);
 
@@ -80,7 +80,7 @@ export function decomposeColor(color) {
     colorSpace = values.shift();
 
     if (values.length === 4 && values[3].charAt(0) === '/') {
-      values[3] = values[3].substr(1);
+      values[3] = values[3].slice(1);
     }
 
     if (['srgb', 'display-p3', 'a98-rgb', 'prophoto-rgb', 'rec-2020'].indexOf(colorSpace) === -1) {
@@ -99,6 +99,19 @@ export function decomposeColor(color) {
     colorSpace: colorSpace
   };
 }
+/**
+ * Returns a channel created from the input color.
+ *
+ * @param {string} color - CSS color, i.e. one of: #nnn, #nnnnnn, rgb(), rgba(), hsl(), hsla()
+ * @returns {string} - The channel for the color, that can be used in rgba or hsla colors
+ */
+
+export var colorChannel = function colorChannel(color) {
+  var decomposedColor = decomposeColor(color);
+  return decomposedColor.values.slice(0, 3).map(function (val, idx) {
+    return decomposedColor.type.indexOf('hsl') !== -1 && idx !== 0 ? "".concat(val, "%") : val;
+  }).join(' ');
+};
 /**
  * Converts a color object with type and values to a string.
  * @param {object} color - Decomposed color

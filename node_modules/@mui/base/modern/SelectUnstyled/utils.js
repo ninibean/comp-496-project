@@ -30,7 +30,7 @@ export function getOptionsFromChildren(children) {
     const element = node;
     const option = {
       value: element.props.value,
-      label: element.props.children,
+      label: element.props.label || element.props.children,
       disabled: element.props.disabled ?? false
     };
     selectChildren.push(option);

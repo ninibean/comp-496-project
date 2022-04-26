@@ -36,11 +36,11 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
  *
  * Demos:
  *
- * - [Switches](https://mui.com/components/switches/)
+ * - [Switch](https://mui.com/base/react-switch/)
  *
  * API:
  *
- * - [SwitchUnstyled API](https://mui.com/api/switch-unstyled/)
+ * - [SwitchUnstyled API](https://mui.com/base/api/switch-unstyled/)
  */
 const SwitchUnstyled = /*#__PURE__*/React.forwardRef(function SwitchUnstyled(props, ref) {
   var _ref, _components$Thumb, _componentsProps$thum, _components$Input, _componentsProps$inpu, _components$Track, _componentsProps$trac;

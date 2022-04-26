@@ -84,6 +84,7 @@ const ListItemButtonRoot = (0, _styled.default)(_ButtonBase.default, {
   alignItems: 'center',
   position: 'relative',
   textDecoration: 'none',
+  minWidth: 0,
   boxSizing: 'border-box',
   textAlign: 'left',
   paddingTop: 8,

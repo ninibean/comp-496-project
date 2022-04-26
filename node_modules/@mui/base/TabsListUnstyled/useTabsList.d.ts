@@ -18,7 +18,7 @@ declare const useTabsList: (props: UseTabsListProps) => {
         'aria-labelledby': string | undefined;
         'aria-orientation': string | null;
         role: string;
-        ref: React.Ref<unknown>;
+        ref: React.Ref<any>;
     };
 };
 export default useTabsList;

@@ -508,7 +508,11 @@ function useSlider(props) {
     stopListening();
   });
   const handleTouchStart = (0, _utils.unstable_useEventCallback)(nativeEvent => {
-    // If touch-action: none; is not supported we need to prevent the scroll manually.
+    if (disabled) {
+      return;
+    } // If touch-action: none; is not supported we need to prevent the scroll manually.
+
+
     if (!doesSupportTouchActionNone()) {
       nativeEvent.preventDefault();
     }
@@ -579,6 +583,10 @@ function useSlider(props) {
     var _otherHandlers$onMous;
 
     (_otherHandlers$onMous = otherHandlers.onMouseDown) == null ? void 0 : _otherHandlers$onMous.call(otherHandlers, event);
+
+    if (disabled) {
+      return;
+    }
 
     if (event.defaultPrevented) {
       return;

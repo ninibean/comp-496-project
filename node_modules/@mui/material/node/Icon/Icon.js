@@ -151,7 +151,9 @@ process.env.NODE_ENV !== "production" ? Icon.propTypes
   className: _propTypes.default.string,
 
   /**
-   * The color of the component. It supports those theme colors that make sense for this component.
+   * The color of the component.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'inherit'
    */
   color: _propTypes.default

@@ -93,7 +93,7 @@ const FormControlRoot = (0, _styled.default)('div', {
  *  - Input
  *  - InputLabel
  *
- * You can find one composition example below and more going to [the demos](/components/text-fields/#components).
+ * You can find one composition example below and more going to [the demos](/material-ui/react-text-field/#components).
  *
  * ```jsx
  * <FormControl>
@@ -271,7 +271,9 @@ process.env.NODE_ENV !== "production" ? FormControl.propTypes
   className: _propTypes.default.string,
 
   /**
-   * The color of the component. It supports those theme colors that make sense for this component.
+   * The color of the component.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).
    * @default 'primary'
    */
   color: _propTypes.default

@@ -5,6 +5,42 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _exportNames = {
+  adaptV4Theme: true,
+  hexToRgb: true,
+  rgbToHex: true,
+  hslToRgb: true,
+  decomposeColor: true,
+  recomposeColor: true,
+  getContrastRatio: true,
+  getLuminance: true,
+  emphasize: true,
+  alpha: true,
+  darken: true,
+  lighten: true,
+  css: true,
+  keyframes: true,
+  experimental_sx: true,
+  StyledEngineProvider: true,
+  createTheme: true,
+  createMuiTheme: true,
+  unstable_createMuiStrictModeTheme: true,
+  createStyles: true,
+  unstable_getUnit: true,
+  unstable_toUnitless: true,
+  responsiveFontSizes: true,
+  duration: true,
+  easing: true,
+  useTheme: true,
+  useThemeProps: true,
+  styled: true,
+  experimentalStyled: true,
+  ThemeProvider: true,
+  makeStyles: true,
+  withStyles: true,
+  withTheme: true,
+  experimental_extendTheme: true
+};
 Object.defineProperty(exports, "StyledEngineProvider", {
   enumerable: true,
   get: function () {
@@ -87,6 +123,12 @@ Object.defineProperty(exports, "experimentalStyled", {
   enumerable: true,
   get: function () {
     return _styled.default;
+  }
+});
+Object.defineProperty(exports, "experimental_extendTheme", {
+  enumerable: true,
+  get: function () {
+    return _experimental_extendTheme.default;
   }
 });
 Object.defineProperty(exports, "experimental_sx", {
@@ -233,6 +275,22 @@ var _makeStyles = _interopRequireDefault(require("./makeStyles"));
 var _withStyles = _interopRequireDefault(require("./withStyles"));
 
 var _withTheme = _interopRequireDefault(require("./withTheme"));
+
+var _CssVarsProvider = require("./CssVarsProvider");
+
+Object.keys(_CssVarsProvider).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === _CssVarsProvider[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _CssVarsProvider[key];
+    }
+  });
+});
+
+var _experimental_extendTheme = _interopRequireDefault(require("./experimental_extendTheme"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
