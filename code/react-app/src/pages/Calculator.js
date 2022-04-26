@@ -1,8 +1,17 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import "./Calculator.css";
+import Login from "../login/Login.js";
+import { studentGpa } from "../login/Login.js";
+import { useEffect, useState } from "react";
+import { Users } from "./users";
+import "./app.css";
+import Table from "./Table";
 
 class Calculator extends React.Component {
+
+  
+
   addClass() {
 
     // Creates the user input boxes
@@ -92,7 +101,13 @@ class Calculator extends React.Component {
         document.getElementById("cEligibility").innerHTML += "You are eligible for earning a spot on the Chancellor's List! Amazing!";
     }
 
+    
   }
+
+  
+ 
+ 
+
 
   render() {
 
@@ -114,8 +129,9 @@ class Calculator extends React.Component {
         <div id="calculatedGPAValue"></div>
         <div id="cEligibility"></div>
         <div id="dEligibility"></div>
-        
+        <div id="GPAMessage">h</div>
       </div>
+    
     );
     
   }
