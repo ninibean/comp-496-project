@@ -28,7 +28,7 @@
 
 @media (min-width: 700px) {
   .Home-Text {
-    grid-column: col-start 2 / span 3;
+    grid-column: col-start 2 / span 4;
     grid-row: 2;
     font-weight: 900;
     font-size: 58px;

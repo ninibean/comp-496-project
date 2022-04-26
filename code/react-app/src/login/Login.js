@@ -4,7 +4,6 @@ import { useState } from "react";
 import ClassesLeft from "./features/ClassesLeft";
 import GpaFetch from "./features/GpaFetch";
 import Recommend from "./features/Recommend";
-//import "./Login.css";
 import Button from "@mui/material/Button";
 import "../pages/Calculator.css";
 
@@ -178,26 +177,25 @@ const Login = () => {
               <div className="output-area"></div>
 
               <Button onClick={logout}>Logout</Button>
-              <h3>You are logged in as {loginData.email}, a student account</h3>
+              <h3> Welcome, {loginData.email}! You are logged in as a student.</h3>
             </div>
           ) : (
             <div>
               <Button onClick={logout}>Logout</Button>
-              <h3>
-                You are logged in as {loginData.email}, a professor account
-              </h3>
+              <h3> Welcome, {loginData.email}! You are logged in as a professor.</h3>
             </div>
           )
         ) : (
           <div className="googleButton">
-            <h3>Log in using your Aggie Email: </h3>
-            <GoogleLogin
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="Log in with Google"
-              onSuccess={login}
-              onfailure={loginFail}
-              cookiePolicy={"single_host_origin"}
-            ></GoogleLogin>
+            <h4>Log in using your Aggie Email:
+                <GoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="Log in with Google"
+                onSuccess={login}
+                onfailure={loginFail}
+                cookiePolicy={"single_host_origin"}
+                ></GoogleLogin>
+            </h4>
           </div>
         )}
       </div>
