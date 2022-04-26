@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import "./Calculator.css";
+import Login from "../login/Login.js";
 
 class Calculator extends React.Component {
   addClass() {
-
     // Creates the user input boxes
     const c = document.createElement("div");
     const cgbox = document.createElement("textarea");
@@ -14,7 +14,6 @@ class Calculator extends React.Component {
     c.appendChild(cgbox);
     c.appendChild(chbox);
     document.getElementById("classInfo").appendChild(c);
-
   }
 
   manualGPA() {
@@ -69,33 +68,37 @@ class Calculator extends React.Component {
     // checks Good Academic Standing
     var message = document.getElementById("GPAMessage");
     if (finalGPA < 2.0) {
-        message.innerHTML = "You are not in Good Academic Standing. No worries! This is the time to get you back on track.";
+      message.innerHTML =
+        "You are not in Good Academic Standing. No worries! This is the time to get you back on track.";
     } else {
-        message.innerHTML = "Congrats! You are in Good Academic Standing. Keep up the good work!";
+      message.innerHTML =
+        "Congrats! You are in Good Academic Standing. Keep up the good work!";
     }
 
     // checks Dean's List Eligibility
     if (finalGPA < 3.25) {
-        document.getElementById("dEligibility").innerHTML = "";
-        document.getElementById("dEligibility").innerHTML += "You are not eligible for earning a spot on the Dean's List.";
+      document.getElementById("dEligibility").innerHTML = "";
+      document.getElementById("dEligibility").innerHTML +=
+        "You are not eligible for earning a spot on the Dean's List.";
     } else {
-        document.getElementById("dEligibility").innerHTML = "";
-        document.getElementById("dEligibility").innerHTML += "You are eligible for earning a spot on the Dean's List! Whoo hoo!";
+      document.getElementById("dEligibility").innerHTML = "";
+      document.getElementById("dEligibility").innerHTML +=
+        "You are eligible for earning a spot on the Dean's List! Whoo hoo!";
     }
 
     // checks Chancellor's List Eligibility
     if (finalGPA < 3.75) {
-        document.getElementById("cEligibility").innerHTML = "";
-        document.getElementById("cEligibility").innerHTML += "You are not eligible for earning a spot on the Chancellor's List.";
+      document.getElementById("cEligibility").innerHTML = "";
+      document.getElementById("cEligibility").innerHTML +=
+        "You are not eligible for earning a spot on the Chancellor's List.";
     } else {
-        document.getElementById("cEligibility").innerHTML = "";
-        document.getElementById("cEligibility").innerHTML += "You are eligible for earning a spot on the Chancellor's List! Amazing!";
+      document.getElementById("cEligibility").innerHTML = "";
+      document.getElementById("cEligibility").innerHTML +=
+        "You are eligible for earning a spot on the Chancellor's List! Amazing!";
     }
-
   }
 
   render() {
-
     return (
       <div className="Calculator">
         <div id="instructions">
@@ -114,10 +117,8 @@ class Calculator extends React.Component {
         <div id="calculatedGPAValue"></div>
         <div id="cEligibility"></div>
         <div id="dEligibility"></div>
-        
       </div>
     );
-    
   }
 }
 
