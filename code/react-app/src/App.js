@@ -26,7 +26,7 @@ import Table from "./pages/Table";
       <div>
         <Router>
           <Navbar />
-          <Login />
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculator" element={<Calculator />} />
@@ -36,7 +36,6 @@ import Table from "./pages/Table";
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
-
         <div className="app">
        <input
        type="text"
@@ -45,7 +44,7 @@ import Table from "./pages/Table";
          onChange={(e) => setQuery(e.target.value)}
        />
      <Table data={search(Users)} />
-   </div>
+   </div> 
       </div>
     );
   

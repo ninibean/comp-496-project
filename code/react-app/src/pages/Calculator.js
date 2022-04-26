@@ -104,6 +104,7 @@ class Calculator extends React.Component {
       document.getElementById("cEligibility").innerHTML +=
         "You are eligible for earning a spot on the Chancellor's List! Amazing!";
     }
+    
   }
 
   
@@ -113,6 +114,7 @@ class Calculator extends React.Component {
 
   render() {
     return (
+      <div><Login></Login>
       <div className="Calculator">
         <div id="instructions">
           <p> GPA Calculator </p>
@@ -130,10 +132,10 @@ class Calculator extends React.Component {
         <div id="calculatedGPAValue"></div>
         <div id="cEligibility"></div>
         <div id="dEligibility"></div>
-        <div id="GPAMessage">h</div>
-
+        <div id="GPAMessage"></div>
       </div>
-    
+      <div id='search bar here'></div>
+      </div>
     );
   }
 }
