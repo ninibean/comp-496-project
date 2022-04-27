@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { Users } from "./users";
 import "./app.css";
 import Table from "./Table";
+import Appfun from "./Appfun";
 
 class Calculator extends React.Component {
 
@@ -112,7 +113,9 @@ class Calculator extends React.Component {
   render() {
 
     return (
+      <div><Login></Login>
       <div className="Calculator">
+      
         <div id="instructions">
           <p> GPA Calculator </p>
         </div>
@@ -130,9 +133,10 @@ class Calculator extends React.Component {
         <div id="dEligibility"></div>
         <div id="GPAMessage">h</div>
         
-     
+        
+        <Appfun />
       </div>
-    
+    </div>
     );
     
   }
