@@ -11,16 +11,12 @@ import NotFound from "./pages/NotFound";
 import Login from "./login/Login";
 import { useEffect, useState } from "react";
 import { Users } from "./pages/users";
-import "./pages/app.css";
-import Table from "./pages/Table";
 
 
 
    function App() {
-    const [query, setQuery] = useState("");
- const search = (data) =>{
-   return data.filter((item)=> item.name.toLowerCase().includes(query));
- };
+
+ 
   
     return (
       <div>
@@ -36,15 +32,6 @@ import Table from "./pages/Table";
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
-        <div className="app">
-       <input
-       type="text"
-         className="search"
-         placeholder="Search..."
-         onChange={(e) => setQuery(e.target.value)}
-       />
-     <Table data={search(Users)} />
-   </div> 
       </div>
     );
   
