@@ -3,10 +3,10 @@
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
     gap: 20px;
-  }
+}
   
-  #faq {
-    grid-column: col-start 2 / span 5;
+#faq {
+    grid-column: col-start 2 / span 6;
     grid-row: 1;
     text-align: left;
-  }
+}

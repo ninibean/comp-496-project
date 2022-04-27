@@ -128,7 +128,7 @@ const Recommend = () => {
   function listOutputProtocol(list) {
     const nodet = document.createElement("h5");
     const textnode1t = document.createTextNode(
-      "Choose one of the following for an elective slot:"
+      "Choose one of the following to fulfill an elective slot:"
     );
     nodet.appendChild(textnode1t);
     const nodebrt = document.createElement("br");
@@ -196,7 +196,7 @@ const Recommend = () => {
     document.getElementsByClassName("r-result").innerHTML = "";
     const titleNode = document.createElement("h3");
     const titleNodeText = document.createTextNode(
-      "Heres a suggeted list of courses to sign up for next semester:"
+      "Here's a suggeted list of courses you should sign up for next semester:"
     );
     titleNode.appendChild(titleNodeText);
     document.getElementById("r-result").innerHTML = "";

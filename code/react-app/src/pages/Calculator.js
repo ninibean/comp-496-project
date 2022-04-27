@@ -14,7 +14,6 @@ class Calculator extends React.Component {
   
 
   addClass() {
-
     // Creates the user input boxes
     const c = document.createElement("div");
     const cgbox = document.createElement("textarea");
@@ -24,7 +23,6 @@ class Calculator extends React.Component {
     c.appendChild(cgbox);
     c.appendChild(chbox);
     document.getElementById("classInfo").appendChild(c);
-
   }
 
   manualGPA() {
@@ -70,7 +68,7 @@ class Calculator extends React.Component {
 
     // Changes the color of the GPA Value text based on a condition
     var col = document.getElementById("calculatedGPAValue");
-    if (finalGPA < 3.0) {
+    if (finalGPA < 2.0) {
       col.style.color = "#CD2026";
     } else {
       col.style.color = "green";
@@ -78,30 +76,35 @@ class Calculator extends React.Component {
 
     // checks Good Academic Standing
     var message = document.getElementById("GPAMessage");
-    if (finalGPA < 3.0) {
-        message.innerHTML = "You are not in Good Academic Standing. No worries! This is the time to get you back on track.";
+    if (finalGPA < 2.0) {
+      message.innerHTML =
+        "You are not in Good Academic Standing. No worries! This is the time to get you back on track.";
     } else {
-        message.innerHTML = "Congrats! You are in Good Academic Standing. Keep up the good work!";
+      message.innerHTML =
+        "Congrats! You are in Good Academic Standing. Keep up the good work!";
     }
 
     // checks Dean's List Eligibility
     if (finalGPA < 3.25) {
-        document.getElementById("dEligibility").innerHTML = "";
-        document.getElementById("dEligibility").innerHTML += "You are not eligible for earning a spot on the Dean's List.";
+      document.getElementById("dEligibility").innerHTML = "";
+      document.getElementById("dEligibility").innerHTML +=
+        "You are not eligible for earning a spot on the Dean's List.";
     } else {
-        document.getElementById("dEligibility").innerHTML = "";
-        document.getElementById("dEligibility").innerHTML += "You are eligible for earning a spot on the Dean's List! Whoo hoo!";
+      document.getElementById("dEligibility").innerHTML = "";
+      document.getElementById("dEligibility").innerHTML +=
+        "You are eligible for earning a spot on the Dean's List! Whoo hoo!";
     }
 
     // checks Chancellor's List Eligibility
     if (finalGPA < 3.75) {
-        document.getElementById("cEligibility").innerHTML = "";
-        document.getElementById("cEligibility").innerHTML += "You are not eligible for earning a spot on the Chancellor's List.";
+      document.getElementById("cEligibility").innerHTML = "";
+      document.getElementById("cEligibility").innerHTML +=
+        "You are not eligible for earning a spot on the Chancellor's List.";
     } else {
-        document.getElementById("cEligibility").innerHTML = "";
-        document.getElementById("cEligibility").innerHTML += "You are eligible for earning a spot on the Chancellor's List! Amazing!";
+      document.getElementById("cEligibility").innerHTML = "";
+      document.getElementById("cEligibility").innerHTML +=
+        "You are eligible for earning a spot on the Chancellor's List! Amazing!";
     }
-
     
   }
 
@@ -111,7 +114,6 @@ class Calculator extends React.Component {
 
 
   render() {
-
     return (
       <div><Login></Login>
       <div className="Calculator">
@@ -128,17 +130,15 @@ class Calculator extends React.Component {
         <div id="calculatedGPA">
           <p> Overall GPA: </p>
         </div>
+        <div id="GPAMessage"></div>
         <div id="calculatedGPAValue"></div>
         <div id="cEligibility"></div>
         <div id="dEligibility"></div>
-        <div id="GPAMessage">h</div>
-        
-        
-        <Appfun />
+        <div id="GPAMessage"></div>
       </div>
-    </div>
+      <div id='search bar here'></div>
+      </div>
     );
-    
   }
 }
 
