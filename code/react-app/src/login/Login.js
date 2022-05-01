@@ -6,6 +6,9 @@ import GpaFetch from "./features/GpaFetch";
 import Recommend from "./features/Recommend";
 import Button from "@mui/material/Button";
 import "../pages/Calculator.css";
+import { render } from "react-dom";
+import Appfun from '../pages/Appfun'
+import Calculator from '../pages/Calculator'
 
 /*
 const jsonData = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
@@ -23,9 +26,11 @@ var studentEmail = "";
 var studentCourses = "";
 var studentCoursesTaken = "";
 var studentGpa = "";
+var loggedin = false;
 
 const Login = () => {
   var atypes = false;
+  const re = new RegExp(/aggies.ncat.edu$/);
 
   const [loginData, setLoginData] = useState(
     localStorage.getItem("loginData")
@@ -51,16 +56,15 @@ const Login = () => {
     const data = await res.json();
     setLoginData(data);
     localStorage.setItem("loginData", JSON.stringify(data));
-
    
     const api_url = 'https://aggie-api-apps.herokuapp.com/studentsInfo';
     
     async function getAggieApi(){
     const response = await fetch(api_url);
     const data = await response.json();
-    const obj1 = JSON.parse(JSON.stringify(data))
-    const elePrint = data[2]["name"];
-    console.log(elePrint)
+    //const obj1 = JSON.parse(JSON.stringify(data))
+    ///const elePrint = data[2]["name"];
+    //console.log(loginData.email)
     //document.getElementById("testing").textContent=elePrint;
     
     }
@@ -114,6 +118,13 @@ const Login = () => {
   const logout = (googleData) => {
     localStorage.removeItem("loginData");
     setLoginData(null);
+    studentId = "";
+    studentName = "";
+    studentEmail = "";
+    studentCourses = "";
+    studentCoursesTaken = "";
+    studentGpa = "";
+    loggedin = false;
   };
 
   function stuorprof() {
@@ -148,6 +159,7 @@ const Login = () => {
         studentCourses = data[i]["courses"];
         studentCoursesTaken = data[i]["taken"];
         studentGpa = data[i]["gpa"];
+        loggedin = true;
         /*console.log(
           studentId +
             studentName +
@@ -165,12 +177,14 @@ const Login = () => {
 
   getAggieApi();
 
+  
   return (
     <div className="loginSection">
       <div id="loginDiv">
         {loginData ? (
-          stuorprof ? (
+          loginData.email.match(re) ? (
             <div>
+
               <GpaFetch></GpaFetch>
               <ClassesLeft></ClassesLeft>
               <Recommend></Recommend>
@@ -179,12 +193,14 @@ const Login = () => {
               <Button onClick={logout}>Logout</Button>
               <h3> Welcome, {loginData.email}! You are logged in as a student.</h3>
             </div>
-          ) : (
+            ) : (
             <div>
+              <Appfun></Appfun>
               <Button onClick={logout}>Logout</Button>
               <h3> Welcome, {loginData.email}! You are logged in as a professor.</h3>
             </div>
-          )
+            )
+
         ) : (
           <div className="googleButton">
             <h4>Log in using your Aggie Email:
@@ -201,6 +217,7 @@ const Login = () => {
       </div>
     </div>
   );
+            
 };
 export {
   studentId,
@@ -209,5 +226,6 @@ export {
   studentCourses,
   studentCoursesTaken,
   studentGpa,
+  loggedin,
 };
 export default Login;
