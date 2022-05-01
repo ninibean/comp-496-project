@@ -9,6 +9,7 @@ import "../pages/Calculator.css";
 import { render } from "react-dom";
 import Appfun from '../pages/Appfun'
 import Calculator from '../pages/Calculator'
+import NeoCalculator from './features/NeoCalculator'
 
 /*
 const jsonData = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
@@ -184,7 +185,7 @@ const Login = () => {
         {loginData ? (
           loginData.email.match(re) ? (
             <div>
-
+              <NeoCalculator></NeoCalculator>
               <GpaFetch></GpaFetch>
               <ClassesLeft></ClassesLeft>
               <Recommend></Recommend>
@@ -202,16 +203,21 @@ const Login = () => {
             )
 
         ) : (
-          <div className="googleButton">
-            <h4>Log in using your Aggie Email:
-                <GoogleLogin
-                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                buttonText="Log in with Google"
-                onSuccess={login}
-                onfailure={loginFail}
-                cookiePolicy={"single_host_origin"}
-                ></GoogleLogin>
-            </h4>
+          <div>
+            <h4>QuickCalc (Quick Calculation w/o requiring an account):
+              </h4>
+            <NeoCalculator></NeoCalculator>
+            <div className="googleButton">
+              <h4>Or Log in using your Aggie Email: 
+                  <GoogleLogin
+                  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                  buttonText="Log in with Google"
+                  onSuccess={login}
+                  onfailure={loginFail}
+                  cookiePolicy={"single_host_origin"}
+                  ></GoogleLogin>
+              </h4>
+            </div>
           </div>
         )}
       </div>

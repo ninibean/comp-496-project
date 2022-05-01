@@ -1,15 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import "./Calculator.css";
-import Login from "../login/Login.js";
-import { studentGpa, loggedin } from "../login/Login.js";
-import { useEffect, useState } from "react";
-import { Users } from "./users";
-import "./app.css";
-import Table from "./Table";
-import Appfun from './Appfun'
+import "../../pages/Calculator.css";
+import Login from "../../login/Login.js";
+import { studentGpa, loggedin } from "../../login/Login.js";
 
-class Calculator extends React.Component {
+class NeoCalculator extends React.Component {
 
   
 
@@ -118,9 +113,31 @@ class Calculator extends React.Component {
       <div>
         
           <div>
-      
+      <div className="Calculator">
+      {loggedin ? (
+        <h3>test</h3>
+      ) : (<div></div>)
+        }
+        <div id="instructions">
+          <p> GPA Calculator </p>
+        </div>
+        <div id="classInfo"></div>
+        <div id="buttonField">
+          <Button onClick={this.addClass}> Add Class </Button>
+          <Button onClick={this.manualGPA}> Calculate GPA </Button>
+          <Button onClick={this.removeClass}> Remove Class </Button>
+        </div>
+        <div id="calculatedGPA">
+          <p> Overall GPA: </p>
+        </div>
+        <div id="GPAMessage"></div>
+        <div id="calculatedGPAValue"></div>
+        <div id="cEligibility"></div>
+        <div id="dEligibility"></div>
+        <div id="GPAMessage"></div>
+      </div>
       <div id='search bar here'>
-        <Login></Login>
+
       </div>
       </div>
       </div>
@@ -128,4 +145,4 @@ class Calculator extends React.Component {
   }
 }
 
-export default Calculator;
+export default NeoCalculator;
