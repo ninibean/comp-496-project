@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import "./Calculator.css";
 import Login from "../login/Login.js";
-import { studentGpa } from "../login/Login.js";
+import { studentGpa, loggedin } from "../login/Login.js";
 import { useEffect, useState } from "react";
 import { Users } from "./users";
 import "./app.css";
@@ -115,8 +115,14 @@ class Calculator extends React.Component {
 
   render() {
     return (
-      <div><Login></Login>
+      <div>
+        
+          <div>
       <div className="Calculator">
+      {loggedin ? (
+        <h3>test</h3>
+      ) : (<div></div>)
+        }
         <div id="instructions">
           <p> GPA Calculator </p>
         </div>
@@ -136,7 +142,8 @@ class Calculator extends React.Component {
         <div id="GPAMessage"></div>
       </div>
       <div id='search bar here'>
-        <Appfun></Appfun>
+        <Login></Login>
+      </div>
       </div>
       </div>
     );
