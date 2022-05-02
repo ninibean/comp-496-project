@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { Users } from "./users";
 import "./app.css";
 import Table from "./Table";
-import Appfun from "./Appfun";
+import Appfun from './Appfun'
 
 class Calculator extends React.Component {
 
@@ -136,7 +136,9 @@ class Calculator extends React.Component {
         <div id="dEligibility"></div>
         <div id="GPAMessage"></div>
       </div>
-      <div id='search bar here'></div>
+      <div id='search bar here'>
+        <Appfun></Appfun>
+      </div>
       </div>
     );
   }

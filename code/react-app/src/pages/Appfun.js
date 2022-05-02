@@ -31,4 +31,3 @@ import Table from "./Table";
 
   
   export default Appfun;
-  

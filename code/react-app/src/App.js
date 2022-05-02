@@ -10,12 +10,11 @@ import Resources from "./pages/Resources";
 import NotFound from "./pages/NotFound";
 import Login from "./login/Login";
 import { useEffect, useState } from "react";
-
+import { Users } from "./pages/users";
 
 
 
    function App() {
-   
  
   
     return (
@@ -31,15 +30,6 @@ import { useEffect, useState } from "react";
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
-        <div className="app">
-       <input
-       type="text"
-         className="search"
-         placeholder="Search..."
-         onChange={(e) => setQuery(e.target.value)}
-       />
-     <Table data={search(Users)} />
-   </div> 
       </div>
     );
   
