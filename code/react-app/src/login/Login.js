@@ -204,8 +204,9 @@ const Login = () => {
 
         ) : (
           <div>
-            <h4>QuickCalc (Quick Calculation w/o requiring an account):
-              </h4>
+            <h3> 
+                Calculate your GPA without an account. Try it now!
+            </h3>
             <NeoCalculator></NeoCalculator>
             <div className="googleButton">
               <h4>Or Log in using your Aggie Email: 

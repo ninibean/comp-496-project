@@ -5,9 +5,6 @@ import Login from "../../login/Login.js";
 import { studentGpa, loggedin } from "../../login/Login.js";
 
 class NeoCalculator extends React.Component {
-
-  
-
   addClass() {
     // Creates the user input boxes
     const c = document.createElement("div");
@@ -18,6 +15,12 @@ class NeoCalculator extends React.Component {
     c.appendChild(cgbox);
     c.appendChild(chbox);
     document.getElementById("classInfo").appendChild(c);
+  }
+
+  removeClass() {
+    // Removes the user input boxes
+    const classFields = document.getElementById("classInfo");
+    classFields.removeChild(classFields.lastElementChild);
   }
 
   manualGPA() {
@@ -102,11 +105,6 @@ class NeoCalculator extends React.Component {
     }
     
   }
-
-  
- 
- 
-
 
   render() {
     return (
