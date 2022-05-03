@@ -10,7 +10,7 @@ const About = () =>{
                 <h1> About Us</h1>
                 <p> We are a group a college students that wanted to help our peers graduate. </p>
                 <br></br>
-                <p> The Mission of GPA Genie is to take out the guesswork of one's academic standing. 
+                <p> The mission of GPA Genie is to take out the guesswork of one's academic standing. 
                     With our tool, we hope it will serve as a one-stop shop where students and monitor their progress and have access to relevant helpful resources. 
                     We want to help students take control of their academic career early on so they can still graduate on time.
                 </p>

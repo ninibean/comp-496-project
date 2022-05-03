@@ -1,17 +1,9 @@
 import React from "react";
-import Button from "@mui/material/Button";
 import "./Calculator.css";
 import Login from "../login/Login.js";
-import { studentGpa, loggedin } from "../login/Login.js";
-import { useEffect, useState } from "react";
-import { Users } from "./users";
 import "./app.css";
-import Table from "./Table";
-import Appfun from './Appfun'
 
 class Calculator extends React.Component {
-
-  
 
   addClass() {
     // Creates the user input boxes
@@ -108,21 +100,14 @@ class Calculator extends React.Component {
     
   }
 
-  
- 
- 
-
-
   render() {
     return (
       <div>
-        
           <div>
-      
-      <div id='search bar here'>
-        <Login></Login>
-      </div>
-      </div>
+              <div id='search bar here'>
+                  <Login></Login>
+                </div>
+            </div>
       </div>
     );
   }
