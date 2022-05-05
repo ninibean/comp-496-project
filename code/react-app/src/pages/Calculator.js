@@ -7,12 +7,9 @@ import { useEffect, useState } from "react";
 import { Users } from "./users";
 import "./app.css";
 import Table from "./Table";
-import Appfun from './Appfun'
+import Appfun from "./Appfun";
 
 class Calculator extends React.Component {
-
-  
-
   addClass() {
     // Creates the user input boxes
     const c = document.createElement("div");
@@ -105,24 +102,16 @@ class Calculator extends React.Component {
       document.getElementById("cEligibility").innerHTML +=
         "You are eligible for earning a spot on the Chancellor's List! Amazing!";
     }
-    
   }
-
-  
- 
- 
-
 
   render() {
     return (
       <div>
-        
-          <div>
-      
-      <div id='search bar here'>
-        <Login></Login>
-      </div>
-      </div>
+        <div>
+          <div id="search bar here">
+            <Login></Login>
+          </div>
+        </div>
       </div>
     );
   }

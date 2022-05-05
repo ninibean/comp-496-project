@@ -7,20 +7,10 @@ import Recommend from "./features/Recommend";
 import Button from "@mui/material/Button";
 import "../pages/Calculator.css";
 import { render } from "react-dom";
-import Appfun from '../pages/Appfun'
-import Calculator from '../pages/Calculator'
-import NeoCalculator from './features/NeoCalculator'
+import Appfun from "../pages/Appfun";
+import Calculator from "../pages/Calculator";
+import NeoCalculator from "./features/NeoCalculator";
 
-/*
-const jsonData = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
-const express = require("express");
-const app = express();
-
-app.get("/quiz", (req, res) => {
-  res.json(jsonData);
-});
-
-app.serve(3000);*/
 var studentId = "";
 var studentName = "";
 var studentEmail = "";
@@ -57,63 +47,15 @@ const Login = () => {
     const data = await res.json();
     setLoginData(data);
     localStorage.setItem("loginData", JSON.stringify(data));
-   
-    const api_url = 'https://aggie-api-apps.herokuapp.com/studentsInfo';
-    
-    async function getAggieApi(){
-    const response = await fetch(api_url);
-    const data = await response.json();
-    //const obj1 = JSON.parse(JSON.stringify(data))
-    ///const elePrint = data[2]["name"];
-    //console.log(loginData.email)
-    //document.getElementById("testing").textContent=elePrint;
-    
+
+    const api_url = "https://aggie-api-apps.herokuapp.com/studentsInfo";
+
+    async function getAggieApi() {
+      const response = await fetch(api_url);
+      const data = await response.json();
     }
-    
-    
+
     getAggieApi();
-    
-    
-    
-    
-       
-
-    //
-    //
-    /*
-    console.log(loginData.email);
-    //const st = loginData.email + "";
-
-    var regx = new RegExp("^adma");
-
-    console.log(loginData.email.toString().match(regx));
-    if (loginData.email.search("ad") > -1) {
-      atypes = true;
-    }
-
-    if (regx.exec("adma")) {
-      atypes = true;
-      if (atypes) console.log("wdqd");
-    }
-
-    let lol = "lol";
-    var regx2 = new RegExp("lol");
-    if (regx2.match("lol")) {
-      atypes = true;
-      if (atypes) console.log("wdd");
-    }*/
-
-    //console.log("ahhahah");
-    //var emailv = loginData.email;
-    //var emailvpt2 = JSON.stringify(emailv);
-    //console.log("ahhahah2");
-    //console.log(JSON.stringify(loginData.email));
-
-    //console.log(emailvpt2);
-    //if (JSON.stringify(loginData.email).search("aggies.ncat.edu") > -1) {
-    //  console.log("usethis");
-    //  atypes = true;
-    //}
   };
 
   const logout = (googleData) => {
@@ -128,32 +70,15 @@ const Login = () => {
     loggedin = false;
   };
 
-  function stuorprof() {
-    //console.log("ahhahah");
-    //var emailv = loginData.email;
-    //var emailvpt2 = JSON.stringify(emailv);
-    //console.log("ahhahah2");
-    //console.log(JSON.stringify(loginData.email));
-    //console.log(emailvpt2);
-    //if (JSON.stringify(loginData.email).search("aggies.ncat.edu") > -1) {
-    //  console.log("usethis");
-    //  atypes = true;
-    //}
-    return false;
-  }
-
   const api_url = "https://aggie-api-apps.herokuapp.com/studentsInfo";
 
   async function getAggieApi() {
     const response = await fetch(api_url);
     const data = await response.json();
     const obj1 = JSON.parse(JSON.stringify(data));
-    //var thisStudent = -1;
-    //console.log(elePrint);
 
     for (let i = 0; i < data.length; i++) {
       if (data[i]["email"] == loginData.email) {
-        //thisStudent=i;
         studentId = data[i]["id"];
         studentName = data[i]["name"];
         studentEmail = data[i]["email"];
@@ -161,24 +86,13 @@ const Login = () => {
         studentCoursesTaken = data[i]["taken"];
         studentGpa = data[i]["gpa"];
         loggedin = true;
-        /*console.log(
-          studentId +
-            studentName +
-            studentEmail +
-            studentCourses +
-            studentCoursesTaken +
-            studentGpa
-        );*/
         break;
       }
     }
-
-    //document.getElementById("testing").textContent = elePrint;
   }
 
   getAggieApi();
 
-  
   return (
     <div className="loginSection">
       <div id="loginDiv">
@@ -192,30 +106,35 @@ const Login = () => {
               <div className="output-area"></div>
 
               <Button onClick={logout}>Logout</Button>
-              <h3> Welcome, {loginData.email}! You are logged in as a student.</h3>
+              <h3>
+                {" "}
+                Welcome, {loginData.email}! You are logged in as a student.
+              </h3>
             </div>
-            ) : (
+          ) : (
             <div>
               <Appfun></Appfun>
               <Button onClick={logout}>Logout</Button>
-              <h3> Welcome, {loginData.email}! You are logged in as a professor.</h3>
+              <h3>
+                {" "}
+                Welcome, {loginData.email}! You are logged in as a professor.
+              </h3>
             </div>
-            )
-
+          )
         ) : (
           <div>
-            <h4>QuickCalc (Quick Calculation w/o requiring an account):
-              </h4>
+            <h4>QuickCalc (Quick Calculation w/o requiring an account):</h4>
             <NeoCalculator></NeoCalculator>
             <div className="googleButton">
-              <h4>Or Log in using your Aggie Email: 
-                  <GoogleLogin
+              <h4>
+                Or Log in using your Aggie Email:
+                <GoogleLogin
                   clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                   buttonText="Log in with Google"
                   onSuccess={login}
                   onfailure={loginFail}
                   cookiePolicy={"single_host_origin"}
-                  ></GoogleLogin>
+                ></GoogleLogin>
               </h4>
             </div>
           </div>
@@ -223,7 +142,6 @@ const Login = () => {
       </div>
     </div>
   );
-            
 };
 export {
   studentId,
