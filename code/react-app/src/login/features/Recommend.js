@@ -1,15 +1,10 @@
 import React from "react";
-import GoogleLogin from "react-google-login";
-import { useState } from "react";
 import Button from "@mui/material/Button";
 import "../Login.css";
 import { studentCoursesTaken } from "../Login";
 
 const Recommend = () => {
   let cleft = [];
-  //let json3 = require("https://aggie-api-apps.herokuapp.com/studentsInfo");
-  //console.log(json3);
-  //let json = require("../../backend/db.json");
   const samplestudentclasses = studentCoursesTaken;
 
   const classes = [
@@ -116,6 +111,7 @@ const Recommend = () => {
     "COMP496",
   ];
 
+  // For recommending single courses
   function singleOutputProtocol(course) {
     const nodet = document.createElement("h5");
     const textnode1t = document.createTextNode(course);
@@ -125,6 +121,7 @@ const Recommend = () => {
     nodet.appendChild(nodebrt);
   }
 
+  // For reccomending groups of electives
   function listOutputProtocol(list) {
     const nodet = document.createElement("h5");
     const textnode1t = document.createTextNode(
@@ -141,6 +138,8 @@ const Recommend = () => {
 
     let i = 0;
     let variable_for_table_formatting = list.length % 3;
+
+    // Properly format the output
     while (i < list.length - variable_for_table_formatting) {
       let newrow = document.createElement("tr");
       let cellone = document.createElement("td");
@@ -157,7 +156,7 @@ const Recommend = () => {
       i += 3;
     }
 
-    if (variable_for_table_formatting == 2) {
+    if (variable_for_table_formatting === 2) {
       let finalrow = document.createElement("tr");
       let fcellone = document.createElement("td");
       fcellone.innerHTML = list[list.length - 2];
@@ -166,7 +165,7 @@ const Recommend = () => {
       finalrow.appendChild(fcellone);
       finalrow.appendChild(fcelltwo);
       tbody.appendChild(finalrow);
-    } else if (variable_for_table_formatting == 1) {
+    } else if (variable_for_table_formatting === 1) {
       let finalrow = document.createElement("tr");
       let fcellone = document.createElement("td");
       fcellone.innerHTML = list[list.length - 2];
@@ -175,23 +174,10 @@ const Recommend = () => {
     }
 
     table.appendChild(tbody);
-
-    // Adding the entire table to the body tag
     document.getElementById("r-result").appendChild(table);
-
-    /*
-    var x = document.createElement("ul");
-    x.setAttribute("id", "myUL");
-    document.getElementById("r-result").appendChild(x);
-
-    for (let i = 0; i < list.length; i++) {
-      var y = document.createElement("LI");
-      var t = document.createTextNode(list[i]);
-      y.appendChild(t);
-      document.getElementById("myUL").appendChild(y);
-    }*/
   }
 
+  // Display recomended classes
   function outputProtocol() {
     document.getElementsByClassName("r-result").innerHTML = "";
     const titleNode = document.createElement("h3");
@@ -210,28 +196,18 @@ const Recommend = () => {
       }
     }
 
-    //const node = document.createElement("h5");
-    //for (let i = 0; i < cleft.length; i++) {
-    //  const textnode1 = document.createTextNode(cleft[i]);
-    //  node.appendChild(textnode1);
-    //  const nodebr = document.createElement("br");
-    //document.getElementById("r-result").innerHTML = "";
-    //  document.getElementById("r-result").appendChild(node);
-    //  node.appendChild(nodebr);
-    //}
     cleft = [];
   }
 
+  // Catalyst function to get the ball rolling
   function recommendClasses() {
     let count = 0;
     for (let i = 0; i < classes.length; i++) {
-      //console.log(classes[i]);
       if (classes[i].constructor === Array) {
-        if (classes[0] == "COMP301") {
+        if (classes[0] === "COMP301") {
         } else {
           for (let j = 0; j < classes[i].length; j++) {
-            if (samplestudentclasses.indexOf(classes[i][j]) == -1) {
-              //console.log("One of the following: " + classes[i] + "");
+            if (samplestudentclasses.indexOf(classes[i][j]) === -1) {
               cleft.push(classes[i]);
               count = count + 1;
               if (count >= 5) {
@@ -243,7 +219,7 @@ const Recommend = () => {
           }
         }
       } else {
-        if (samplestudentclasses.indexOf(classes[i]) == -1) {
+        if (samplestudentclasses.indexOf(classes[i]) === -1) {
           cleft.push(classes[i]);
           count = count + 1;
           if (count >= 5) {

@@ -17,7 +17,8 @@ Our application will be live via a URL.
 ## Project Roadmap
 - [x] Feb 15, 2022 - DEMO DAY: Backend Implementation Focus
 - [x] Mar 3, 2022 - MIDSTAGE DEMO DAY
-- [ ] May 5, 2022 - FINAL PRESENTATION AND DEMO
+- [x] April 28, 2022 - SENIOR EXPO 
+- [ ] May 12, 2022 - FINAL PRESENTATION AND DEMO
 
 ## Authors and Acknowledgment
 TEAM MEMBERS AND ROLES:
@@ -35,3 +36,5 @@ As of January 18, 2022 - ACTIVE
 
 As of February 15, 2022 - Satisfactory. Dr. Qingge recommended that we add additional features to the 
 web application to make an even stonger project.
+
+As of March 3, 2022 - Satisfactory. 

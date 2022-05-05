@@ -1,11 +1,9 @@
 import React from "react";
-import GoogleLogin from "react-google-login";
-import { useState } from "react";
 import Button from "@mui/material/Button";
-import Login from "../Login";
 import { studentGpa } from "../Login";
 
 const GpaFetch = () => {
+  // Get the GPA from the API
   function showresult() {
     console.log(studentGpa + " lol");
     var flavortext = "";
@@ -14,8 +12,6 @@ const GpaFetch = () => {
     } else {
       flavortext = ", you are not in Academic Standing. Let's get to work!";
     }
-    //console.log(samplestudentgpa);
-    //console.log(flavortext);
     const node = document.createElement("h3");
     const textnode1 = document.createTextNode(studentGpa);
     const textnode2 = document.createTextNode(flavortext);

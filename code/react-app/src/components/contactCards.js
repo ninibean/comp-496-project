@@ -60,7 +60,7 @@ export default function ImgMediaCard() {
                     Akinlabi Mason-Hogans
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Backend Developer
+                    Fullstack Developer
                     </Typography>
                     <Typography variant="body2" color="text.primary">
                     I am a graduating senior computer science student and I love anime. Connect with me on LinkedIn to learn more about me!
@@ -86,7 +86,7 @@ export default function ImgMediaCard() {
                     Dimitri Law
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Backend and API Developer
+                    Fullstack and API Developer
                     </Typography>
                     <Typography variant="body2" color="text.primary">
                     I am a graduating senior computer science student and an entrepreneur. Connect with me on LinkedIn to learn more about me!

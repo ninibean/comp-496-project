@@ -6,11 +6,10 @@ import GpaFetch from "./features/GpaFetch";
 import Recommend from "./features/Recommend";
 import Button from "@mui/material/Button";
 import "../pages/Calculator.css";
-import { render } from "react-dom";
 import Appfun from "../pages/Appfun";
-import Calculator from "../pages/Calculator";
 import NeoCalculator from "./features/NeoCalculator";
 
+// Data other files need, must be exported later
 var studentId = "";
 var studentName = "";
 var studentEmail = "";
@@ -20,7 +19,6 @@ var studentGpa = "";
 var loggedin = false;
 
 const Login = () => {
-  var atypes = false;
   const re = new RegExp(/aggies.ncat.edu$/);
 
   const [loginData, setLoginData] = useState(
@@ -29,10 +27,12 @@ const Login = () => {
       : null
   );
 
+  // In case of error
   const loginFail = (result) => {
     alert(result);
   };
 
+  // Connect to Google API, store login data
   const login = async (googleData) => {
     const res = await fetch("/api/google-login", {
       method: "POST",
@@ -48,16 +48,10 @@ const Login = () => {
     setLoginData(data);
     localStorage.setItem("loginData", JSON.stringify(data));
 
-    const api_url = "https://aggie-api-apps.herokuapp.com/studentsInfo";
-
-    async function getAggieApi() {
-      const response = await fetch(api_url);
-      const data = await response.json();
-    }
-
     getAggieApi();
   };
 
+  // Reset
   const logout = (googleData) => {
     localStorage.removeItem("loginData");
     setLoginData(null);
@@ -72,13 +66,13 @@ const Login = () => {
 
   const api_url = "https://aggie-api-apps.herokuapp.com/studentsInfo";
 
+  // Match Data
   async function getAggieApi() {
     const response = await fetch(api_url);
     const data = await response.json();
-    const obj1 = JSON.parse(JSON.stringify(data));
 
     for (let i = 0; i < data.length; i++) {
-      if (data[i]["email"] == loginData.email) {
+      if (data[i]["email"] === loginData.email) {
         studentId = data[i]["id"];
         studentName = data[i]["name"];
         studentEmail = data[i]["email"];
@@ -123,7 +117,7 @@ const Login = () => {
           )
         ) : (
           <div>
-            <h4>QuickCalc (Quick Calculation w/o requiring an account):</h4>
+            <h3>Calculate your GPA without an account. Try it now!</h3>
             <NeoCalculator></NeoCalculator>
             <div className="googleButton">
               <h4>

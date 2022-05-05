@@ -1,6 +1,4 @@
 import React from "react";
-import GoogleLogin from "react-google-login";
-import { useState } from "react";
 import Button from "@mui/material/Button";
 import { studentCoursesTaken } from "../Login";
 
@@ -102,6 +100,7 @@ const ClassesLeft = () => {
     "PHIL 201",
   ];
 
+  // Method for displaying classes
   function listOutputProtocol(list, subject) {
     const nodet = document.createElement("h5");
     const textnode1t = document.createTextNode(
@@ -134,7 +133,7 @@ const ClassesLeft = () => {
       i += 3;
     }
 
-    if (variable_for_table_formatting == 2) {
+    if (variable_for_table_formatting === 2) {
       let finalrow = document.createElement("tr");
       let fcellone = document.createElement("td");
       fcellone.innerHTML = list[list.length - 2];
@@ -143,7 +142,7 @@ const ClassesLeft = () => {
       finalrow.appendChild(fcellone);
       finalrow.appendChild(fcelltwo);
       tbody.appendChild(finalrow);
-    } else if (variable_for_table_formatting == 1) {
+    } else if (variable_for_table_formatting === 1) {
       let finalrow = document.createElement("tr");
       let fcellone = document.createElement("td");
       fcellone.innerHTML = list[list.length - 2];
@@ -155,17 +154,18 @@ const ClassesLeft = () => {
     document.getElementById("cl-result").appendChild(table);
   }
 
+  // Helper function
   function subjectcheck(courses, subject) {
     listOutputProtocol(courses, subject);
   }
 
+  // Check to see if elective requirements were met
   function electivecheck(courses, n) {
     let m = 0;
     for (let i = 0; i < courses.length; i++) {
-      if (samplestudentclasses.indexOf(courses[i]) != -1) {
-        //console.log(courses[i]);
+      if (samplestudentclasses.indexOf(courses[i]) !== -1) {
         m = m + 1;
-        if (m == n) {
+        if (m === n) {
           result.push("You have taken enough electives in this subject.");
           return;
         }
@@ -174,6 +174,7 @@ const ClassesLeft = () => {
     result.push("You need " + (n - m) + " more electives in this subject.");
   }
 
+  // Catalyst function to get the ball rolling
   function sortclasses() {
     document.getElementById("cl-result").textContent = "";
     result.push("Computer Science credit still needed:");

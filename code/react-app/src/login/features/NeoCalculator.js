@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import "../../pages/Calculator.css";
-import Login from "../../login/Login.js";
-import { studentGpa, loggedin } from "../../login/Login.js";
 
 class NeoCalculator extends React.Component {
   addClass() {
@@ -15,6 +13,12 @@ class NeoCalculator extends React.Component {
     c.appendChild(cgbox);
     c.appendChild(chbox);
     document.getElementById("classInfo").appendChild(c);
+  }
+
+  removeClass() {
+    // Removes the user input boxes
+    const classFields = document.getElementById("classInfo");
+    classFields.removeChild(classFields.lastElementChild);
   }
 
   manualGPA() {
@@ -104,7 +108,6 @@ class NeoCalculator extends React.Component {
       <div>
         <div>
           <div className="Calculator">
-            {loggedin ? <h3>test</h3> : <div></div>}
             <div id="instructions">
               <p> GPA Calculator </p>
             </div>
