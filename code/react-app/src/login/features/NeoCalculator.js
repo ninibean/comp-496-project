@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import "../../pages/Calculator.css";
-import Login from "../../login/Login.js";
-import { studentGpa, loggedin } from "../../login/Login.js";
 
 class NeoCalculator extends React.Component {
   addClass() {
@@ -103,41 +101,33 @@ class NeoCalculator extends React.Component {
       document.getElementById("cEligibility").innerHTML +=
         "You are eligible for earning a spot on the Chancellor's List! Amazing!";
     }
-    
   }
 
   render() {
     return (
       <div>
-        
-          <div>
-      <div className="Calculator">
-      {loggedin ? (
-        <h3>test</h3>
-      ) : (<div></div>)
-        }
-        <div id="instructions">
-          <p> GPA Calculator </p>
+        <div>
+          <div className="Calculator">
+            <div id="instructions">
+              <p> GPA Calculator </p>
+            </div>
+            <div id="classInfo"></div>
+            <div id="buttonField">
+              <Button onClick={this.addClass}> Add Class </Button>
+              <Button onClick={this.manualGPA}> Calculate GPA </Button>
+              <Button onClick={this.removeClass}> Remove Class </Button>
+            </div>
+            <div id="calculatedGPA">
+              <p> Overall GPA: </p>
+            </div>
+            <div id="GPAMessage"></div>
+            <div id="calculatedGPAValue"></div>
+            <div id="cEligibility"></div>
+            <div id="dEligibility"></div>
+            <div id="GPAMessage"></div>
+          </div>
+          <div id="search bar here"></div>
         </div>
-        <div id="classInfo"></div>
-        <div id="buttonField">
-          <Button onClick={this.addClass}> Add Class </Button>
-          <Button onClick={this.manualGPA}> Calculate GPA </Button>
-          <Button onClick={this.removeClass}> Remove Class </Button>
-        </div>
-        <div id="calculatedGPA">
-          <p> Overall GPA: </p>
-        </div>
-        <div id="GPAMessage"></div>
-        <div id="calculatedGPAValue"></div>
-        <div id="cEligibility"></div>
-        <div id="dEligibility"></div>
-        <div id="GPAMessage"></div>
-      </div>
-      <div id='search bar here'>
-
-      </div>
-      </div>
       </div>
     );
   }
