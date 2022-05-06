@@ -13,7 +13,7 @@ const navbar= () =>{
     <div id="navbar-wrapper">
         <div id='navbar'>
             <li id='home'>
-                <Link to="/" style={linkStyle}> 
+                <Link to="/comp-496-project" style={linkStyle}> 
                     <div class="logo-image">
                         <img src="images/gglogo.jpg" alt="" class="img-fluid"></img>
                     </div>
