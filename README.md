@@ -1,7 +1,7 @@
 # GPA Genie - COMP 496 - Senior Project 2
 This repository houses the Senior Project that my group completed for COMP 496 Spring 2022. 
 
-View our project info website: https://ninibean.github.io/comp-496-project/
+Our project is live! Please click the link to be redirected to it: https://ninibean.github.io/comp-496-project/
 
 ## Description
 The GPA Genie is a one-stop stop for a student’s academic progress. It can pull up a student’s GPA with
