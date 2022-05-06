@@ -13,23 +13,23 @@ const navbar= () =>{
     <div id="navbar-wrapper">
         <div id='navbar'>
             <li id='home'>
-                <Link to="/comp-496-project" style={linkStyle}> 
+                <Link to="/comp-496-project/" style={linkStyle}> 
                     <div class="logo-image">
                         <img src="images/gglogo.jpg" alt="" class="img-fluid"></img>
                     </div>
                 </Link>
             </li>
             <li>
-                <Link to="/calculator" style={linkStyle}> GPA Calculator </Link>
+                <Link to="/comp-496-project/calculator" style={linkStyle}> GPA Calculator </Link>
             </li>
             <li>
-                <Link to="/about" style={linkStyle}> About Us </Link>
+                <Link to="/comp-496-project/about" style={linkStyle}> About Us </Link>
             </li>
             <li>
-                <Link to="/faq" style={linkStyle}> FAQ </Link>
+                <Link to="/comp-496-project/faq" style={linkStyle}> FAQ </Link>
             </li>
             <li>
-                <Link to="/resources" style={linkStyle}>Resources</Link>
+                <Link to="/comp-496-project/resources" style={linkStyle}>Resources</Link>
             </li>
             
     </div>

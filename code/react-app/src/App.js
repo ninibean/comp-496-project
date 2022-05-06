@@ -17,10 +17,10 @@ function App() {
 
         <Routes>
           <Route path="/comp-496-project" element={<Home />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/resources" element={<Resources />} />
+          <Route path="/comp-496-project/calculator" element={<Calculator />} />
+          <Route path="/comp-496-project/about" element={<About />} />
+          <Route path="/comp-496-project/faq" element={<FAQ />} />
+          <Route path="/comp-496-project/resources" element={<Resources />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
