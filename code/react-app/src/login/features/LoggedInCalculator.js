@@ -26,8 +26,6 @@ class LoggedInCalculator extends React.Component {
     // Calculates the GPA and outputs the result
     document.getElementById("calculatedGPAValue").innerHTML = "";
 
-    //var creditEarned = studentCoursesTaken.length;
-    //var totalHours = creditEarned * 3.0 + 0;
     var creditEarned = 0.0;
     var totalHours = 0.0;
     var grade;
