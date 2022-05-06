@@ -4,8 +4,8 @@ export const Users = // 20220425133546
 [
   {
     "id": 0,
-    "name": "susan barkley",
-    "email": "susanbarkley@aggies.ncat.edu",
+    "name": "Addison Shaver",
+    "email": "awshaver@aggies.ncat.edu",
     "courses": [
       "Comp165",
       "comp267",
