@@ -5,7 +5,6 @@ import { studentGpa } from "../Login";
 const GpaFetch = () => {
   // Get the GPA from the API
   function showresult() {
-    console.log(studentGpa + " lol");
     var flavortext = "";
     if (studentGpa >= 2.0) {
       flavortext = ", you are in Academic Standing. Good job!";
@@ -23,7 +22,7 @@ const GpaFetch = () => {
 
   return (
     <div>
-      <Button onClick={showresult}>Load GPA</Button>
+      <Button onClick={showresult}>Load Current GPA</Button>
       <div id="result"></div>
     </div>
   );

@@ -209,7 +209,7 @@ const ClassesLeft = () => {
 
   return (
     <div id="cl-section">
-      <Button onClick={sortclasses}>Needed Classes</Button>
+      <Button onClick={sortclasses}>Load Classes Needed for Graduation</Button>
       <div id="cl-result"></div>
     </div>
   );

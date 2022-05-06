@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import "../pages/Calculator.css";
 import Appfun from "../pages/Appfun";
 import NeoCalculator from "./features/NeoCalculator";
+import LoggedInCalculator from "./features/LoggedInCalculator";
 
 // Data other files need, must be exported later
 var studentId = "";
@@ -93,7 +94,7 @@ const Login = () => {
         {loginData ? (
           loginData.email.match(re) ? (
             <div>
-              <NeoCalculator></NeoCalculator>
+              <LoggedInCalculator></LoggedInCalculator>
               <GpaFetch></GpaFetch>
               <ClassesLeft></ClassesLeft>
               <Recommend></Recommend>
