@@ -37,7 +37,7 @@ export default function ImgMediaCard() {
                     </Typography>
                     <Typography variant="body2" color="text.primary">
                     I am a graduating senior computer science student attending North Carolina A&T
-                    State University! Connect with me on LinkedIn to learn more about me!
+                    State University! I love to draw! Connect with me on LinkedIn to learn more about me!
                     </Typography>
                 </CardContent>
                 <CardActions>
@@ -60,10 +60,10 @@ export default function ImgMediaCard() {
                     Akinlabi Mason-Hogans
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Backend Developer
+                    Fullstack Developer
                     </Typography>
                     <Typography variant="body2" color="text.primary">
-                     Connect with me on LinkedIn to learn more about me!
+                    I am a graduating senior computer science student and I love anime. Connect with me on LinkedIn to learn more about me!
                     </Typography>
                 </CardContent>
                 <CardActions>
@@ -77,7 +77,7 @@ export default function ImgMediaCard() {
             <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                     component="img"
-                    alt="niara memoji"
+                    alt="dimitri memoji"
                     height="300"
                     src={image3}
                 />
@@ -86,10 +86,10 @@ export default function ImgMediaCard() {
                     Dimitri Law
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Backend and API Developer
+                    Fullstack and API Developer
                     </Typography>
                     <Typography variant="body2" color="text.primary">
-                    Connect with me on LinkedIn to learn more about me!
+                    I am a graduating senior computer science student and an entrepreneur. Connect with me on LinkedIn to learn more about me!
                     </Typography>
                 </CardContent>
                 <CardActions>

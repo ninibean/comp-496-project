@@ -1,5 +1,6 @@
-export const Users = // 20220425133546
-// https://aggie-api-apps.herokuapp.com/studentsInfo
+export const Users =
+  // 20220425133546
+  // https://aggie-api-apps.herokuapp.com/studentsInfo
 
 [
   {

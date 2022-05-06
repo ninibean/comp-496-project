@@ -38,8 +38,8 @@
 }
 
 #checkboxField {
-    grid-column: col-start 2 / span 5;
-    grid-row: 4;
+  grid-column: col-start 2 / span 5;
+  grid-row: 4;
 }
 
 #loginstuff {
@@ -61,65 +61,71 @@
   grid-row: 4;
 }
 
+#result {
+  background-color: #e6e6e6;
+  grid-column: col-start 2 / span 5;
+  grid-row: 4;
+}
+
 #GPAMessage {
-    grid-column: col-start 7 / span 3;
-    grid-row: 3;
-    font-weight: 400;
-    font-size: 1.5em;
-    text-align: center;
+  grid-column: col-start 7 / span 3;
+  grid-row: 3;
+  font-weight: 400;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 #cEligibility {
-    grid-column: col-start 7 / span 3;
-    grid-row: 5;
-    font-weight: 400;
-    font-size: 1.5em;
-    text-align: center;
+  grid-column: col-start 7 / span 3;
+  grid-row: 5;
+  font-weight: 400;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 #dEligibility {
-    grid-column: col-start 7 / span 3;
-    grid-row: 6;
-    font-weight: 400;
-    font-size: 1.5em;
-    text-align: center;
+  grid-column: col-start 7 / span 3;
+  grid-row: 6;
+  font-weight: 400;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 textarea {
-    font-family: Inter, Arial, Helvetica, sans-serif;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    font-size: 14px;
-    resize: none;
-    width: 25%;
-    margin-bottom: 10px;
-    margin-right: 5px;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  resize: none;
+  width: 30%;
+  margin-bottom: 10px;
+  margin-right: 5px;
 }
 
 @media (min-width: 700px) {
-    #GPAMessage {
-        grid-column: col-start 7 / span 4;
-        grid-row: 3;
-        font-weight: 400;
-        font-size: 1.3em;
-        text-align: center;
-    }
+  #GPAMessage {
+    grid-column: col-start 7 / span 4;
+    grid-row: 3;
+    font-weight: 400;
+    font-size: 1.3em;
+    text-align: center;
+  }
 
-    #cEligibility {
-        grid-column: col-start 7 / span 4;
-        grid-row: 4;
-        font-weight: 400;
-        font-size: 1.3em;
-        text-align: center;
-    }
-    
-    #dEligibility {
-        grid-column: col-start 7 / span 4;
-        grid-row: 5;
-        font-weight: 400;
-        font-size: 1.3em;
-        text-align: center;
-    }
+  #cEligibility {
+    grid-column: col-start 7 / span 4;
+    grid-row: 4;
+    font-weight: 400;
+    font-size: 1.3em;
+    text-align: center;
+  }
+
+  #dEligibility {
+    grid-column: col-start 7 / span 4;
+    grid-row: 5;
+    font-weight: 400;
+    font-size: 1.3em;
+    text-align: center;
+  }
 }

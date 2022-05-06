@@ -1,0 +1,18 @@
+.Resources {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    gap: 20px;
+}
+  
+#resource-section {
+    grid-column: col-start 2 / span 10;
+    grid-row: 1;
+    text-align: center;
+}
+
+#resource-cards {
+    grid-column: col-start 2 / span 10;
+    grid-row: 2;
+    text-align: center;
+}

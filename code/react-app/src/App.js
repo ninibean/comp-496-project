@@ -8,11 +8,14 @@ import About from "./pages/About";
 import FAQ from "./pages/faq";
 import Resources from "./pages/Resources";
 import NotFound from "./pages/NotFound";
-import Login from "./login/Login";
-import { useEffect, useState } from "react";
-import { Users } from "./pages/users";
 
+function App() {
+  return (
+    <div>
+      <Router>
+        <Navbar />
 
+<<<<<<< HEAD
 
    function App() {
  
@@ -33,6 +36,19 @@ import { Users } from "./pages/users";
       </div>
     );
   
+=======
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+>>>>>>> b8f8dd493f1c98d902ca1800f810b24b2887c336
 }
 
 export default App;
