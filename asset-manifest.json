@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/ninibean/comp-496-project/code/react-app/static/css/main.9ec845f0.css",
-    "main.js": "/ninibean/comp-496-project/code/react-app/static/js/main.f0c08d7b.js",
-    "static/js/787.b701888c.chunk.js": "/ninibean/comp-496-project/code/react-app/static/js/787.b701888c.chunk.js",
-    "static/media/niara.png": "/ninibean/comp-496-project/code/react-app/static/media/niara.b58898d85c4063473c5e.png",
-    "static/media/dimitri.png": "/ninibean/comp-496-project/code/react-app/static/media/dimitri.7693a895254a4770fcbd.png",
-    "static/media/akin.png": "/ninibean/comp-496-project/code/react-app/static/media/akin.827482ce7f9001418ce8.png",
-    "static/media/babyAggie.png": "/ninibean/comp-496-project/code/react-app/static/media/babyAggie.258e7ff980759ed607e3.png",
-    "static/media/aggiesDo.png": "/ninibean/comp-496-project/code/react-app/static/media/aggiesDo.bf67a075784584a2269c.png",
-    "index.html": "/ninibean/comp-496-project/code/react-app/index.html",
-    "main.9ec845f0.css.map": "/ninibean/comp-496-project/code/react-app/static/css/main.9ec845f0.css.map",
-    "main.f0c08d7b.js.map": "/ninibean/comp-496-project/code/react-app/static/js/main.f0c08d7b.js.map",
-    "787.b701888c.chunk.js.map": "/ninibean/comp-496-project/code/react-app/static/js/787.b701888c.chunk.js.map"
+    "main.css": "/comp-496-project/static/css/main.9ec845f0.css",
+    "main.js": "/comp-496-project/static/js/main.635467e6.js",
+    "static/js/787.b701888c.chunk.js": "/comp-496-project/static/js/787.b701888c.chunk.js",
+    "static/media/niara.png": "/comp-496-project/static/media/niara.b58898d85c4063473c5e.png",
+    "static/media/dimitri.png": "/comp-496-project/static/media/dimitri.7693a895254a4770fcbd.png",
+    "static/media/akin.png": "/comp-496-project/static/media/akin.827482ce7f9001418ce8.png",
+    "static/media/babyAggie.png": "/comp-496-project/static/media/babyAggie.258e7ff980759ed607e3.png",
+    "static/media/aggiesDo.png": "/comp-496-project/static/media/aggiesDo.bf67a075784584a2269c.png",
+    "index.html": "/comp-496-project/index.html",
+    "main.9ec845f0.css.map": "/comp-496-project/static/css/main.9ec845f0.css.map",
+    "main.635467e6.js.map": "/comp-496-project/static/js/main.635467e6.js.map",
+    "787.b701888c.chunk.js.map": "/comp-496-project/static/js/787.b701888c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9ec845f0.css",
-    "static/js/main.f0c08d7b.js"
+    "static/js/main.635467e6.js"
   ]
 }
