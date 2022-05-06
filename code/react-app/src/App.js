@@ -15,28 +15,6 @@ function App() {
       <Router>
         <Navbar />
 
-<<<<<<< HEAD
-
-   function App() {
- 
-  
-    return (
-      <div>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Router>
-      </div>
-    );
-  
-=======
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/calculator" element={<Calculator />} />
@@ -48,7 +26,6 @@ function App() {
       </Router>
     </div>
   );
->>>>>>> b8f8dd493f1c98d902ca1800f810b24b2887c336
 }
 
 export default App;
