@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = `/calculator`;
+    let path = `/comp-496-project/calculator`;
     navigate(path);
   };
 
