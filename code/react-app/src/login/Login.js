@@ -86,6 +86,17 @@ const Login = () => {
     }
   }
 
+  
+    if ('loginData.email' =='dalaw@aggies.ncat.edu') {
+      document.getElementsByClassName("testing").textContent='werido';
+    }else{
+      document.getElementsByClassName("testing").textContent='ewwww';
+    }
+  
+   
+
+  
+ 
   getAggieApi();
 
   return (
@@ -99,6 +110,7 @@ const Login = () => {
               <ClassesLeft></ClassesLeft>
               <Recommend></Recommend>
               <div className="output-area"></div>
+              <div className="testing"> </div>
 
               <Button onClick={logout}>Logout</Button>
               <h3>
