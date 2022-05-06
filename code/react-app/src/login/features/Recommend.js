@@ -235,7 +235,9 @@ const Recommend = () => {
 
   return (
     <div id="r-section">
-      <Button onClick={recommendClasses}>Recommend Classes</Button>
+      <Button onClick={recommendClasses}>
+        Recommend Classes for Next Semester
+      </Button>
       <div id="r-result"></div>
     </div>
   );
