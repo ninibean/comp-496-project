@@ -25,7 +25,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "install-client":"cd code/react-app && npm start",
+    "building": "cd code/react-app/src/backend node loginServer.js",
+    "heroku-postbuild":"npm run install-client && npm run building ",
+    "start": "cd code/react-app/src/backend node loginServer.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
